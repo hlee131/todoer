@@ -1,0 +1,38 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "A todo app built with Django and React",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run watch:css && webpack --mode development --watch ./todoproject/frontend/src/index.jsx --output ./todoproject/frontend/static/frontend/main.js",
+    "build": "npm run build:css && webpack --mode production ./todoproject/frontend/src/index.jsx --output ./todoproject/frontend/static/frontend/main.js",
+    "build:css": "postcss ./todoproject/frontend/src/tailwind/tailwind.css -o ./todoproject/frontend/src/tailwind.css",
+    "watch:css": "postcss ./todoproject/frontend/src/tailwind/tailwind.css -o ./todoproject/frontend/src/tailwind.css"
+  },
+  "author": "Hansel Lee",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "autoprefixer": "^9.8.5",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "css-loader": "^3.6.0",
+    "postcss-cli": "^7.1.1",
+    "style-loader": "^1.2.1",
+    "tailwindcss": "^1.5.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
+}
