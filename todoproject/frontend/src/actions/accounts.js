@@ -5,6 +5,7 @@ import {
   REGISTER_FAIL,
   LOGIN_SUCCESS,
   REGISTER_SUCCESS,
+  LOGOUT,
 } from "./types";
 
 export const login = (username, password) => (dispatch) => {
@@ -62,4 +63,10 @@ export const register = (username, password, email) => (dispatch) => {
         type: REGISTER_FAIL,
       });
     });
+};
+
+export const logout = () => (dispatch) => {
+  dispatch({
+    type: LOGOUT,
+  });
 };

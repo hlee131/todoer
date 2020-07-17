@@ -3,6 +3,7 @@ import {
   REGISTER_FAIL,
   LOGIN_SUCCESS,
   REGISTER_SUCCESS,
+  LOGOUT,
 } from "../actions/types";
 
 const initialState = {
@@ -17,6 +18,12 @@ export default function (state = initialState, action) {
         ...state,
         ...action.payload,
         isAuthenticated: true,
+      };
+    case LOGOUT:
+      localStorage.removeItem("token");
+      return {
+        ...state,
+        isAuthenticated: false,
       };
     default:
       return state;
