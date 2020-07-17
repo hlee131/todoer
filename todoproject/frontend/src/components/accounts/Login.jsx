@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, Redirect } from "react-router-dom";
 
 import { login } from "../../actions/accounts";
 
 function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const onSubmit = (e) => {
@@ -26,6 +27,10 @@ function Login(props) {
         break;
     }
   };
+
+  if (auth.isAuthenticated) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-gray-100">

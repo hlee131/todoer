@@ -6,8 +6,7 @@ import {
 } from "../actions/types";
 
 const initialState = {
-  token: localStorage.getItem("token"),
-  isAuthenticated: false,
+  isAuthenticated: localStorage.getItem("token") === null ? false : true,
 };
 
 export default function (state = initialState, action) {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { register } from "../../actions/accounts";
@@ -9,6 +9,7 @@ export default function Register(props) {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -31,6 +32,10 @@ export default function Register(props) {
         break;
     }
   };
+
+  if (auth.isAuthenticated) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-gray-100">
