@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  75% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.fade {
+  animation-play-state: paused;
+  animation-name: fade-out;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+}

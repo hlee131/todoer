@@ -1,7 +1,9 @@
-import { GET_ITEMS, NEW_ITEM } from "../actions/types";
+import { GET_ITEMS, NEW_ITEM, ITEM_COMPLETE, FILTER } from "../actions/types";
+import { applyMiddleware } from "redux";
 
 const initialState = {
   items: [],
+  filter: "all",
 };
 
 export default function (state = initialState, action) {
@@ -12,10 +14,13 @@ export default function (state = initialState, action) {
         items: action.payload,
       };
     case NEW_ITEM:
-      console.log("new");
-      console.log(action.payload);
       return {
         items: [...state.items, action.payload],
+      };
+    case FILTER:
+      return {
+        ...state,
+        filter: action.payload,
       };
     default:
       return state;
