@@ -15,6 +15,7 @@ export default function (state = initialState, action) {
       };
     case NEW_ITEM:
       return {
+        ...state,
         items: [...state.items, action.payload],
       };
     case FILTER:

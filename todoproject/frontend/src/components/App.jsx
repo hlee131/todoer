@@ -12,6 +12,12 @@ import Settings from "./misc/Settings.jsx";
 import Dashboard from "./dashboard/Dashboard.jsx";
 
 export default function App(props) {
+  localStorage.setItem(
+    "style",
+    localStorage.getItem("style") === null
+      ? "light"
+      : localStorage.getItem("style")
+  );
   return (
     <Provider store={store}>
       <HashRouter>

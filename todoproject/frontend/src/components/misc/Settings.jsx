@@ -1,10 +1,27 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { update, deleteAcc, logout } from "../../actions/accounts";
 
 export default function Settings() {
   const [visible, setVisible] = useState("password");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const dispatch = useDispatch();
+
   const onClick = () => {
-    console.log("submitted");
+    dispatch(update(username, password, email));
+    setUsername("");
+    setEmail("");
+    setPassword("");
+  };
+
+  const deleteAccount = () => {
+    // TODO: Add confirmation
+    dispatch(deleteAcc());
+    dispatch(logout());
   };
 
   return (
@@ -29,6 +46,8 @@ export default function Settings() {
             type="text"
             id="username"
             className="w-1/2 border-solid border-2 border-gray-600 m-1"
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
           />
 
           <label htmlFor="email" className="m-1">
@@ -38,6 +57,8 @@ export default function Settings() {
             type="text"
             id="email"
             className="w-1/2 border-solid border-2 border-gray-600 m-1"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
           <label htmlFor="password" className="m-1">
             Password
@@ -46,6 +67,8 @@ export default function Settings() {
             type={visible}
             id="password"
             className="w-1/2 border-solid border-2 border-gray-600 m-1"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
           />
           <span className="flex items-center">
             <input
@@ -67,21 +90,32 @@ export default function Settings() {
           <label htmlFor="style" className="m-1">
             Style Settings
           </label>
-          <select name="style" id="style">
+          <select
+            name="style"
+            id="style"
+            defaultValue={localStorage.getItem("style")}
+          >
             <option value="light">Light</option>
             <option value="dark">Dark</option>
           </select>
         </form>
       </section>
-      <div className="mt-5 w-screen flex justify-center">
+      <span className="mt-5 w-screen flex justify-center">
         <button
           type="button"
-          className="bg-green-400 p-1 rounded-lg cursor-pointer"
+          className="bg-green-400 p-1 m-1 rounded-lg cursor-pointer"
           onClick={onClick}
         >
           Save Changes
         </button>
-      </div>
+        <button
+          type="button"
+          className="bg-red-400 p-1 m-1 rounded-lg cursor-pointer"
+          onClick={deleteAccount}
+        >
+          Delete Account
+        </button>
+      </span>
     </Fragment>
   );
 }

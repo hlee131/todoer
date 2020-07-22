@@ -15,3 +15,13 @@ class UserSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
+
+    def update(self, instance, validated_data):
+        instance.email = validated_data.get('email', instance.email)
+        instance.username = validated_data.get('username', instance.username)
+        try:
+            instance.set_password(validated_data['password'])
+        except KeyError:
+            pass
+        instance.save()
+        return instance

@@ -11,11 +11,13 @@ export default function Items() {
   }, []);
 
   const onCheck = (e) => {
+    // TODO: Move others up via height
+    // TODO: Only when in completed mode
     e.target.parentNode.style.animationPlayState = "running";
     dispatch(completeItem(e.target.id));
   };
 
-  function returnItems() {
+  const returnItems = () => {
     switch (todo.filter) {
       case "all":
         return todo.items;
@@ -28,10 +30,11 @@ export default function Items() {
       // default:
       //   return todo.items.filter(item => item.category === todo.filter)
     }
-  }
+  };
 
   return (
     //   {/* Items */}
+    // TODO: returnItems not found
     <ul>
       {returnItems().map((item) => (
         <li key={item.id} className="fade">

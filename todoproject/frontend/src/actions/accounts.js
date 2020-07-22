@@ -8,6 +8,8 @@ import {
   LOGOUT,
 } from "./types";
 
+import { tokenConfig } from "./todo";
+
 export const login = (username, password) => (dispatch) => {
   const config = {
     headers: {
@@ -69,4 +71,38 @@ export const logout = () => (dispatch) => {
   dispatch({
     type: LOGOUT,
   });
+};
+
+export const update = (username, password, email) => (dispatch, getState) => {
+  // TODO: More clean way of doing this?
+  const body = {};
+  let filled = false;
+  if (username.trim() !== "") {
+    body.username = username;
+    filled = true;
+  }
+  if (password.trim() !== "") {
+    body.password = password;
+    filled = true;
+  }
+  if (email.trim() !== "") {
+    body.email = email;
+    filled = true;
+  }
+
+  if (filled === false) {
+    console.log("Must have one line filled");
+  } else {
+    axios
+      .patch("/api/auth/user", body, tokenConfig(getState))
+      .then((res) => console.log("user updated"))
+      .catch((err) => console.log(err.response.data));
+  }
+};
+
+export const deleteAcc = () => (getState) => {
+  axios
+    .delete("/api/auth/user", tokenConfig(getState))
+    .then((res) => console.log("deleted"))
+    .catch((err) => console.log(err.response.data));
 };
