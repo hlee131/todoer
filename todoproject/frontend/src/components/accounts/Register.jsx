@@ -8,6 +8,7 @@ export default function Register(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [visible, setVisible] = useState("password");
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
 
@@ -71,12 +72,22 @@ export default function Register(props) {
             Password
           </label>
           <input
-            type="password"
+            type={visible}
             id="password"
             value={password}
             onChange={onChange}
             className="w-1/2 border-solid border-2 border-gray-600 m-1"
           ></input>
+          <span className="flex justify-center items-center">
+            <input
+              onChange={() =>
+                setVisible(visible === "password" ? "text" : "password")
+              }
+              type="checkbox"
+              className="m-1"
+            ></input>
+            <p className="m-1">Show Password</p>
+          </span>
           <input
             className="p-2 cursor-pointer m-1"
             type="submit"
