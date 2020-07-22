@@ -97,9 +97,9 @@ export default function Register(props) {
         </form>
         <span className="inline-block m-4">
           <a className="cursor-pointer font-thin">Forgot password?</a> |{" "}
-          <a className="cursor-pointer font-thin">
-            <Link to="/login">Already have an account?</Link>
-          </a>
+          <Link className="cursor-pointer font-thin" to="/login">
+            Already have an account?
+          </Link>
         </span>
       </div>
     </div>

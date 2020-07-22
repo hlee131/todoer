@@ -20,7 +20,7 @@ export default function Form() {
       <input
         type="text"
         placeholder="New item!"
-        className="shadow-inner w-1/2 placeholder-current border-solid border-2 border-gray-300"
+        className="p-1 shadow-inner w-1/2 placeholder-current border-solid border-2 border-gray-300"
         value={item}
         onChange={(e) => setItem(e.target.value)}
       ></input>
