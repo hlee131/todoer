@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { update, deleteAcc, logout } from "../../actions/accounts";
 
@@ -9,6 +9,7 @@ export default function Settings() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const style = useSelector((state) => state.todo.style);
   const dispatch = useDispatch();
 
   const onClick = () => {
@@ -25,15 +26,29 @@ export default function Settings() {
   };
 
   return (
-    <Fragment>
-      <div>
-        <Link to="/">
-          <img
-            className="m-3"
-            src="https://img.icons8.com/metro/26/000000/back.png"
-          />
-        </Link>
-      </div>
+    <div className="h-screen w-screen overflow-hidden {{ style === 'dark' ? bg-gray-800 : bg-gray-100 }}">
+      {/* <div> */}
+      <Link
+        to="/"
+        style={{ top: "0.75rem", left: "0.75rem", position: "relative" }}
+      >
+        <svg
+          version="1.1"
+          id="Capa_1"
+          xmlns="http://www.w3.org/2000/svg"
+          x="0px"
+          y="0px"
+          width="30px"
+          height="30px"
+          viewBox="0 0 306 306"
+          className="fill-current {{ style === 'dark' ? text-white : text-black }}"
+        >
+          <g id="chevron-left">
+            <polygon points="247.35,35.7 211.65,0 58.65,153 211.65,306 247.35,270.3 130.05,153   " />
+          </g>
+        </svg>
+      </Link>
+      {/* </div> */}
       <section className="w-screen">
         <h1 className="text-center text-3xl font-extrabold m-1">
           Account Settings
@@ -116,6 +131,6 @@ export default function Settings() {
           Delete Account
         </button>
       </span>
-    </Fragment>
+    </div>
   );
 }

@@ -1,23 +1,27 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { logout } from "../../actions/accounts";
 import { FILTER } from "../../actions/types";
 
 export default function Nav() {
   const dispatch = useDispatch();
+  const style = useSelector((state) => state.todo.style);
 
   const onSelect = (e) => {
     // First reset everything, then select selected and replace background
     let selectors = document.getElementsByClassName("selector");
     for (var i = 0; i < selectors.length; i++) {
-      selectors[i].classList =
-        "mt-4 bg-gray-200 p-1 rounded-lg cursor-pointer selector";
+      let classList =
+        style === "dark"
+          ? "mt-4 bg-gray-900 text-white p-1 rounded-lg cursor-pointer selector"
+          : "mt-4 bg-gray-200 p-1 rounded-lg cursor-pointer selector";
+
+      selectors[i].classList = classList;
     }
-    e.target.classList = String(e.target.classList).replace(
-      "bg-gray-200",
-      "bg-teal-300"
-    );
+    e.target.classList = String(e.target.classList)
+      .replace("bg-gray-200", "bg-teal-300")
+      .replace("bg-gray-900 text-white", "bg-teal-300 text-black");
 
     dispatch({
       type: FILTER,
@@ -27,10 +31,12 @@ export default function Nav() {
 
   return (
     //   {/* Nav buttons to filter items, position: left */}
-    <nav className="bg-white w-1/4 float-left h-screen">
+    <nav className="{{ style === 'dark' ? bg-gray-700 : bg-white }} w-1/4 float-left h-screen">
       <ul className="flex flex-col items-center mt-3">
         <li>
-          <h2 className="font-black text-2xl">Categories</h2>
+          <h2 className="{{ style === 'dark' ? text-white : text-black  }} font-black text-2xl">
+            Categories
+          </h2>
         </li>
         <li
           id="all"
@@ -41,14 +47,15 @@ export default function Nav() {
         </li>
         <li
           id="incomplete"
-          className="mt-4 bg-gray-200 p-1 rounded-lg cursor-pointer selector"
+          // TODO: Better way?
+          className="{{ style === 'dark' ? bg-gray-900 : bg-gray-200 }} {{ style === 'dark' ? text-white : text-black }} mt-4  p-1 rounded-lg cursor-pointer selector"
           onClick={onSelect}
         >
           Incompleted
         </li>
         <li
           id="complete"
-          className="mt-4 bg-gray-200 p-1 rounded-lg cursor-pointer selector"
+          className="{{ style === 'dark' ? bg-gray-900 : bg-gray-200 }} {{ style === 'dark' ? text-white : text-black }} mt-4 bg-gray-200 p-1 rounded-lg cursor-pointer selector"
           onClick={onSelect}
         >
           Completed

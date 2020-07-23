@@ -8,7 +8,7 @@ Todoer is a todo app that I built to learn Django REST Framework and React.
 <!-- Open preview with ctrl+k v or ctrl+shift+v -->
 
 1. Password visible (DONE)
-2. Reset Password / Edit Account Info (DONE)
+2. Edit Account Info (DONE)
 3. Light Dark Mode
 4. OAuth
 5. Slack / Messanger bot

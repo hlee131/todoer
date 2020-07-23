@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { newItem } from "../../actions/todo";
 
 export default function Form() {
   const [item, setItem] = useState("");
   const dispatch = useDispatch();
+  const style = useSelector((state) => state.todo.style);
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(newItem(item));
@@ -20,14 +21,15 @@ export default function Form() {
       <input
         type="text"
         placeholder="New item!"
-        className="p-1 shadow-inner w-1/2 placeholder-current border-solid border-2 border-gray-300"
+        // TODO: Better way?
+        className="{{ style === 'dark' ? text-white : text-black }} {{ style === 'dark' ? bg-gray-700 : bg-current }} p-1 shadow-inner w-1/2 placeholder-current border-solid border-2 border-gray-300"
         value={item}
         onChange={(e) => setItem(e.target.value)}
       ></input>
       <input
         type="submit"
         value="Add"
-        className="p-2 w-20 cursor-pointer shadow-inner border-solid border-2 border-gray-300"
+        className="{{ style === 'dark' ? text-white : text-black }} {{ style === 'dark' ? bg-gray-700 : bg-current }} p-2 w-20 cursor-pointer shadow-inner border-solid border-2 border-gray-300"
       ></input>
     </form>
   );

@@ -5,6 +5,7 @@ import { getItems, completeItem } from "../../actions/todo";
 
 export default function Items() {
   const todo = useSelector((state) => state.todo);
+  const style = todo.style;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getItems());
@@ -37,7 +38,10 @@ export default function Items() {
     // TODO: returnItems not found
     <ul>
       {returnItems().map((item) => (
-        <li key={item.id} className="fade">
+        <li
+          key={item.id}
+          className="fade {{ style === 'dark' ? text-white : text-black }}"
+        >
           <input
             id={item.id}
             type="checkbox"

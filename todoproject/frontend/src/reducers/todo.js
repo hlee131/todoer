@@ -4,6 +4,7 @@ import { applyMiddleware } from "redux";
 const initialState = {
   items: [],
   filter: "all",
+  style: localStorage.getItem("style"),
 };
 
 export default function (state = initialState, action) {
