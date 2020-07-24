@@ -1,4 +1,10 @@
-import { GET_ITEMS, NEW_ITEM, ITEM_COMPLETE, FILTER } from "../actions/types";
+import {
+  GET_ITEMS,
+  NEW_ITEM,
+  ITEM_COMPLETE,
+  FILTER,
+  SWITCH,
+} from "../actions/types";
 import { applyMiddleware } from "redux";
 
 const initialState = {
@@ -23,6 +29,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         filter: action.payload,
+      };
+    case SWITCH:
+      return {
+        ...state,
+        style: state.style === "dark" ? "light" : "dark",
       };
     default:
       return state;

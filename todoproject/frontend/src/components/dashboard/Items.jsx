@@ -35,12 +35,11 @@ export default function Items() {
 
   return (
     //   {/* Items */}
-    // TODO: returnItems not found
     <ul>
       {returnItems().map((item) => (
         <li
           key={item.id}
-          className="fade {{ style === 'dark' ? text-white : text-black }}"
+          className={`fade ${style === "dark" ? "text-white" : "text-black"}`}
         >
           <input
             id={item.id}

@@ -8,8 +8,13 @@ function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState("password");
-  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+
+  const auth = useSelector((state) => state.auth);
+  const style = useSelector((state) => state.todo.style);
+  const textColor = style === "dark" ? "text-white" : "text-black";
+  const inputStyles =
+    style === "dark" ? "text-white bg-gray-700" : "text-black bg-gray-100";
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -34,15 +39,29 @@ function Login(props) {
   }
 
   return (
-    <div className="h-screen w-screen flex items-center justify-center bg-gray-100">
-      <div className="w-3/4 border-solid border border-gray-200 p-2 text-center shadow-md bg-white">
-        <h1 className="text-center text-5xl font-extrabold m-1">Todoer</h1>
-        <h2 className="text-center text-2xl m-1 font-thin">Login</h2>
+    <div
+      className={`${textColor} ${
+        style === "dark" ? "bg-gray-700" : "bg-gray-100"
+      } h-screen w-screen flex items-center justify-center`}
+    >
+      <div
+        className={`${
+          style === "dark"
+            ? "bg-gray-800"
+            : "bg-white border-solid border border-gray-200"
+        } w-3/4 p-2 text-center shadow-md`}
+      >
+        <h1 className={`${textColor} text-center text-5xl font-extrabold m-1`}>
+          Todoer
+        </h1>
+        <h2 className={`${textColor} text-center text-2xl m-1 font-thin`}>
+          Login
+        </h2>
         <form
           className="flex flex-col m-3 items-center justify-center"
           onSubmit={onSubmit}
         >
-          <label htmlFor="username" className="m-1">
+          <label htmlFor="username" className={`${textColor} m-1`}>
             Username
           </label>
           <input
@@ -50,9 +69,9 @@ function Login(props) {
             type="text"
             value={username}
             onChange={onChange}
-            className="w-1/2 border-solid border-2 border-gray-600 m-1"
+            className={`${inputStyles} w-1/2 border-solid border border-gray-600 m-1`}
           ></input>
-          <label htmlFor="password" className="m-1">
+          <label htmlFor="password" className={`${textColor} m-1`}>
             Password
           </label>
           <input
@@ -60,7 +79,7 @@ function Login(props) {
             id="password"
             value={password}
             onChange={onChange}
-            className="w-1/2 border-solid border-2 border-gray-600 m-1"
+            className={`${inputStyles} w-1/2 border-solid border border-gray-600 m-1`}
           ></input>
           <span className="flex justify-center items-center">
             <input
@@ -70,18 +89,24 @@ function Login(props) {
               type="checkbox"
               className="m-1"
             ></input>
-            <p className="m-1">Show Password</p>
+            <p className={`${textColor} m-1`}>Show Password</p>
           </span>
           <input
-            className="p-2 cursor-pointer m-1"
+            className={`${inputStyles} p-2 cursor-pointer m-1`}
             type="submit"
             value="Login"
             placeholder="password"
           ></input>
         </form>
         <span className="inline-block m-4">
-          <a className="cursor-pointer font-thin">Forgot password?</a> |{" "}
-          <Link className="cursor-pointer font-thin" to="/register">
+          <a className={`${textColor} cursor-pointer font-thin`}>
+            Forgot password?
+          </a>{" "}
+          |{" "}
+          <Link
+            className={`${textColor} cursor-pointer font-thin`}
+            to="/register"
+          >
             Don't have an account?
           </Link>
         </span>

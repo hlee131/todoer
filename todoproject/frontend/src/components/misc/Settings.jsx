@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { update, deleteAcc, logout } from "../../actions/accounts";
+import { change } from "../../actions/todo";
 
 export default function Settings() {
   const [visible, setVisible] = useState("password");
@@ -12,8 +13,21 @@ export default function Settings() {
   const style = useSelector((state) => state.todo.style);
   const dispatch = useDispatch();
 
+  const textColor = style === "dark" ? "text-white" : "text-black";
+  const inputStyles =
+    style === "dark" ? "text-white bg-gray-700" : "text-black bg-gray-100";
+
   const onClick = () => {
-    dispatch(update(username, password, email));
+    let ran = false;
+    if (style !== document.getElementById("style").selectedOptions[0].value) {
+      dispatch(change());
+      localStorage.setItem(
+        "style",
+        localStorage.getItem("style") === "dark" ? "light" : "dark"
+      );
+      ran = true;
+    }
+    dispatch(update(username, password, email, ran));
     setUsername("");
     setEmail("");
     setPassword("");
@@ -26,7 +40,11 @@ export default function Settings() {
   };
 
   return (
-    <div className="h-screen w-screen overflow-hidden {{ style === 'dark' ? bg-gray-800 : bg-gray-100 }}">
+    <div
+      className={"h-screen w-screen overflow-hidden".concat(
+        style === "dark" ? " bg-gray-800" : " bg-gray-100"
+      )}
+    >
       {/* <div> */}
       <Link
         to="/"
@@ -41,7 +59,7 @@ export default function Settings() {
           width="30px"
           height="30px"
           viewBox="0 0 306 306"
-          className="fill-current {{ style === 'dark' ? text-white : text-black }}"
+          className={`fill-current ${textColor}`}
         >
           <g id="chevron-left">
             <polygon points="247.35,35.7 211.65,0 58.65,153 211.65,306 247.35,270.3 130.05,153   " />
@@ -50,38 +68,38 @@ export default function Settings() {
       </Link>
       {/* </div> */}
       <section className="w-screen">
-        <h1 className="text-center text-3xl font-extrabold m-1">
+        <h1 className={`text-center text-3xl font-extrabold m-1 ${textColor}`}>
           Account Settings
         </h1>
         <form className="flex flex-col w-screen justify-center items-center">
-          <label htmlFor="username" className="m-1">
+          <label htmlFor="username" className={`m-1 ${textColor}`}>
             Username
           </label>
           <input
             type="text"
             id="username"
-            className="w-1/2 border-solid border-2 border-gray-600 m-1"
+            className={`${inputStyles} w-1/2 border-solid border border-gray-600 m-1`}
             onChange={(e) => setUsername(e.target.value)}
             value={username}
           />
 
-          <label htmlFor="email" className="m-1">
+          <label htmlFor="email" className={`m-1 ${textColor}`}>
             Email
           </label>
           <input
             type="text"
             id="email"
-            className="w-1/2 border-solid border-2 border-gray-600 m-1"
+            className={`${inputStyles} w-1/2 border-solid border border-gray-600 m-1`}
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
-          <label htmlFor="password" className="m-1">
+          <label htmlFor="password" className={`m-1 ${textColor}`}>
             Password
           </label>
           <input
             type={visible}
             id="password"
-            className="w-1/2 border-solid border-2 border-gray-600 m-1"
+            className={`${inputStyles} w-1/2 border-solid border border-gray-600 m-1`}
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
@@ -93,16 +111,16 @@ export default function Settings() {
                 setVisible(visible === "password" ? "text" : "password")
               }
             ></input>
-            <p className="m-1">Show Password</p>
+            <p className={`m-1 ${textColor}`}>Show Password</p>
           </span>
         </form>
       </section>
       <section className="w-screen">
-        <h1 className="text-center text-3xl font-extrabold m-1">
-          Display Settings
+        <h1 className={`text-center text-3xl font-extrabold m-1 ${textColor}`}>
+          Display Setting
         </h1>
         <form className="flex flex-col items-center w-screen">
-          <label htmlFor="style" className="m-1">
+          <label htmlFor="style" className={`m-1 ${textColor}`}>
             Style Settings
           </label>
           <select

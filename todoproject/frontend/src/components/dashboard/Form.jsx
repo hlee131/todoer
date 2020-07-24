@@ -6,7 +6,10 @@ import { newItem } from "../../actions/todo";
 export default function Form() {
   const [item, setItem] = useState("");
   const dispatch = useDispatch();
-  const style = useSelector((state) => state.todo.style);
+  const style =
+    useSelector((state) => state.todo.style) === "dark"
+      ? "text-white bg-gray-700"
+      : "text-black bg-gray-100";
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(newItem(item));
@@ -21,15 +24,14 @@ export default function Form() {
       <input
         type="text"
         placeholder="New item!"
-        // TODO: Better way?
-        className="{{ style === 'dark' ? text-white : text-black }} {{ style === 'dark' ? bg-gray-700 : bg-current }} p-1 shadow-inner w-1/2 placeholder-current border-solid border-2 border-gray-300"
+        className={`${style} p-1 shadow-inner w-1/2 placeholder-current border-solid border border-gray-600`}
         value={item}
         onChange={(e) => setItem(e.target.value)}
       ></input>
       <input
         type="submit"
         value="Add"
-        className="{{ style === 'dark' ? text-white : text-black }} {{ style === 'dark' ? bg-gray-700 : bg-current }} p-2 w-20 cursor-pointer shadow-inner border-solid border-2 border-gray-300"
+        className={`${style} p-2 w-20 cursor-pointer shadow-inner border-solid border border-gray-600`}
       ></input>
     </form>
   );

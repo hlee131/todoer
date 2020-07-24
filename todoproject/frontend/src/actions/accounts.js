@@ -73,7 +73,10 @@ export const logout = () => (dispatch) => {
   });
 };
 
-export const update = (username, password, email) => (dispatch, getState) => {
+export const update = (username, password, email, ran) => (
+  dispatch,
+  getState
+) => {
   // TODO: More clean way of doing this?
   const body = {};
   let filled = false;
@@ -90,9 +93,10 @@ export const update = (username, password, email) => (dispatch, getState) => {
     filled = true;
   }
 
-  if (filled === false) {
+  //  TODO: User might be updating style
+  if (filled === false && ran === false) {
     console.log("Must have one line filled");
-  } else {
+  } else if (filled === true) {
     axios
       .patch("/api/auth/user", body, tokenConfig(getState))
       .then((res) => console.log("user updated"))

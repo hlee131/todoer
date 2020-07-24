@@ -10,7 +10,12 @@ export default function Register(props) {
   const [email, setEmail] = useState("");
   const [visible, setVisible] = useState("password");
   const dispatch = useDispatch();
+
   const auth = useSelector((state) => state.auth);
+  const style = useSelector((state) => state.todo.style);
+  const textColor = style === "dark" ? "text-white" : "text-black";
+  const inputStyles =
+    style === "dark" ? "text-white bg-gray-700" : "text-black bg-gray-100";
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -39,8 +44,18 @@ export default function Register(props) {
   }
 
   return (
-    <div className="h-screen w-screen flex items-center justify-center bg-gray-100">
-      <div className="w-3/4 border-solid border border-gray-200 p-2 text-center shadow-md bg-white">
+    <div
+      className={`${textColor} ${
+        style === "dark" ? "bg-gray-700" : "bg-gray-100"
+      } h-screen w-screen flex items-center justify-center`}
+    >
+      <div
+        className={`${
+          style === "dark"
+            ? "bg-gray-800"
+            : "bg-white border-solid border border-gray-200"
+        } w-3/4 p-2 text-center shadow-md`}
+      >
         <h1 className="text-center text-5xl font-extrabold m-1">Todoer</h1>
         <h2 className="text-center text-2xl m-1 font-thin">Register</h2>
         <form
@@ -55,7 +70,7 @@ export default function Register(props) {
             type="text"
             value={email}
             onChange={onChange}
-            className="w-1/2 border-solid border-2 border-gray-600 m-1"
+            className={`${inputStyles} w-1/2 border-solid border border-gray-600 m-1`}
           ></input>
 
           <label htmlFor="username" className="m-1">
@@ -66,7 +81,7 @@ export default function Register(props) {
             type="text"
             value={username}
             onChange={onChange}
-            className="w-1/2 border-solid border-2 border-gray-600 m-1"
+            className={`${inputStyles} w-1/2 border-solid border border-gray-600 m-1`}
           ></input>
           <label htmlFor="password" className="m-1">
             Password
@@ -76,7 +91,7 @@ export default function Register(props) {
             id="password"
             value={password}
             onChange={onChange}
-            className="w-1/2 border-solid border-2 border-gray-600 m-1"
+            className={`${inputStyles} w-1/2 border-solid border border-gray-600 m-1`}
           ></input>
           <span className="flex justify-center items-center">
             <input
@@ -89,7 +104,7 @@ export default function Register(props) {
             <p className="m-1">Show Password</p>
           </span>
           <input
-            className="p-2 cursor-pointer m-1"
+            className={`${inputStyles} p-2 cursor-pointer m-1`}
             type="submit"
             value="Create Account!"
             placeholder="password"

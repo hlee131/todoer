@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { GET_ITEMS, NEW_ITEM, ITEM_COMPLETE } from "./types";
+import { GET_ITEMS, NEW_ITEM, ITEM_COMPLETE, SWITCH } from "./types";
 
 export const getItems = () => (dispatch, getState) => {
   axios
@@ -43,6 +43,12 @@ export const completeItem = (id) => (dispatch, getState) => {
       });
     })
     .catch((err) => console.log(err.response.data));
+};
+
+export const change = () => (dispatch) => {
+  dispatch({
+    type: SWITCH,
+  });
 };
 
 export const tokenConfig = (getState) => {

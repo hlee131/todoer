@@ -7,3 +7,4 @@ export const GET_ITEMS = "GET_ITEMS";
 export const NEW_ITEM = "NEW_ITEM";
 export const ITEM_COMPLETE = "ITEM_COMPLETE";
 export const FILTER = "FILTER";
+export const SWITCH = "SWITCH";
