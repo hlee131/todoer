@@ -45,12 +45,6 @@ export const completeItem = (id) => (dispatch, getState) => {
     .catch((err) => console.log(err.response.data));
 };
 
-export const change = () => (dispatch) => {
-  dispatch({
-    type: SWITCH,
-  });
-};
-
 export const tokenConfig = (getState) => {
   // Get token from state
   const token = localStorage.getItem("token");

@@ -5,7 +5,7 @@ import { getItems, completeItem } from "../../actions/todo";
 
 export default function Items() {
   const todo = useSelector((state) => state.todo);
-  const style = todo.style;
+  const styles = useSelector((state) => state.styles);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getItems());
@@ -35,11 +35,13 @@ export default function Items() {
 
   return (
     //   {/* Items */}
-    <ul>
+    <ul className="">
       {returnItems().map((item) => (
         <li
           key={item.id}
-          className={`fade ${style === "dark" ? "text-white" : "text-black"}`}
+          className={`fade ${
+            styles.style === "dark" ? "text-white" : "text-black"
+          }`}
         >
           <input
             id={item.id}

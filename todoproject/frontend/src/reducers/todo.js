@@ -10,7 +10,6 @@ import { applyMiddleware } from "redux";
 const initialState = {
   items: [],
   filter: "all",
-  style: localStorage.getItem("style"),
 };
 
 export default function (state = initialState, action) {
@@ -29,11 +28,6 @@ export default function (state = initialState, action) {
       return {
         ...state,
         filter: action.payload,
-      };
-    case SWITCH:
-      return {
-        ...state,
-        style: state.style === "dark" ? "light" : "dark",
       };
     default:
       return state;

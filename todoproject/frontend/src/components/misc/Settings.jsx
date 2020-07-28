@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { update, deleteAcc, logout } from "../../actions/accounts";
-import { change } from "../../actions/todo";
+import { change } from "../../actions/styles";
 
 export default function Settings() {
   const [visible, setVisible] = useState("password");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const style = useSelector((state) => state.todo.style);
+  const style = useSelector((state) => state.styles.style);
   const dispatch = useDispatch();
 
   const textColor = style === "dark" ? "text-white" : "text-black";
@@ -68,7 +68,9 @@ export default function Settings() {
       </Link>
       {/* </div> */}
       <section className="w-screen">
-        <h1 className={`text-center text-3xl font-extrabold m-1 ${textColor}`}>
+        <h1
+          className={`text-center text-3xl font-extrabold m-1 mt-4 ${textColor}`}
+        >
           Account Settings
         </h1>
         <form className="flex flex-col w-screen justify-center items-center">

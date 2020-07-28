@@ -12,7 +12,7 @@ export default function Register(props) {
   const dispatch = useDispatch();
 
   const auth = useSelector((state) => state.auth);
-  const style = useSelector((state) => state.todo.style);
+  const style = useSelector((state) => state.styles.style);
   const textColor = style === "dark" ? "text-white" : "text-black";
   const inputStyles =
     style === "dark" ? "text-white bg-gray-700" : "text-black bg-gray-100";
@@ -70,7 +70,7 @@ export default function Register(props) {
             type="text"
             value={email}
             onChange={onChange}
-            className={`${inputStyles} w-1/2 border-solid border border-gray-600 m-1`}
+            className={`${inputStyles} w-3/4 border-solid border border-gray-600 m-1`}
           ></input>
 
           <label htmlFor="username" className="m-1">
@@ -81,7 +81,7 @@ export default function Register(props) {
             type="text"
             value={username}
             onChange={onChange}
-            className={`${inputStyles} w-1/2 border-solid border border-gray-600 m-1`}
+            className={`${inputStyles} w-3/4 border-solid border border-gray-600 m-1`}
           ></input>
           <label htmlFor="password" className="m-1">
             Password
@@ -91,7 +91,7 @@ export default function Register(props) {
             id="password"
             value={password}
             onChange={onChange}
-            className={`${inputStyles} w-1/2 border-solid border border-gray-600 m-1`}
+            className={`${inputStyles} w-3/4 border-solid border border-gray-600 m-1`}
           ></input>
           <span className="flex justify-center items-center">
             <input
@@ -111,7 +111,9 @@ export default function Register(props) {
           ></input>
         </form>
         <span className="inline-block m-4">
-          <a className="cursor-pointer font-thin">Forgot password?</a> |{" "}
+          <a className="cursor-pointer font-thin">Forgot password?</a>
+          <span className="hidden sm:inline"> | </span>
+          <br className="sm:hidden" />
           <Link className="cursor-pointer font-thin" to="/login">
             Already have an account?
           </Link>
