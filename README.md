@@ -24,4 +24,9 @@ CSS: Tailwind
 Frontend: React
 Backend: Django REST Framework
 
+# BUGS
+
+1. Items fading on "All Items"
+2. Items required reloading to be shown as completed
+
 <div>Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>

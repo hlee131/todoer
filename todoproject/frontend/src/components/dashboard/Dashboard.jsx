@@ -20,7 +20,7 @@ export default function Dashboard() {
       <div
         className={`w-screen ${
           styles.navVisible === "block" ? "hidden" : "block"
-        } float-right h-screen sm:w-3/4 sm:block`.concat(
+        } float-right min-h-screen h-auto sm:w-3/4 sm:block`.concat(
           styles.style === "dark" ? " bg-gray-800" : " bg-gray-100"
         )}
       >

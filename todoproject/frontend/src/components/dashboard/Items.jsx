@@ -35,11 +35,12 @@ export default function Items() {
 
   return (
     //   {/* Items */}
-    <ul className="">
+    <ul className="w-full">
       {returnItems().map((item) => (
         <li
           key={item.id}
-          className={`fade ${
+          // TODO: Add categories to fade
+          className={`${todo.filter === "incomplete" ? "fade" : ""} ${
             styles.style === "dark" ? "text-white" : "text-black"
           }`}
         >

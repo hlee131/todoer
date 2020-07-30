@@ -6,8 +6,9 @@ import { newItem } from "../../actions/todo";
 export default function Form() {
   const [item, setItem] = useState("");
   const dispatch = useDispatch();
+  const styles = useSelector((state) => state.styles);
   const style =
-    useSelector((state) => state.styles.style) === "dark"
+    styles.style === "dark"
       ? "text-white bg-gray-700"
       : "text-black bg-gray-100";
   const onSubmit = (e) => {
@@ -18,7 +19,9 @@ export default function Form() {
   return (
     // {/* Add new items */}
     <form
-      className="w-full sm:w-3/4 absolute flex justify-around mb-5 bottom-0"
+      className={`w-full sm:w-3/4 fixed flex justify-around p-5 bottom-0 ${
+        styles.style === "dark" ? " bg-gray-800" : " bg-gray-100"
+      }`}
       onSubmit={onSubmit}
     >
       <input

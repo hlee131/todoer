@@ -29,7 +29,16 @@ export default function (state = initialState, action) {
         ...state,
         filter: action.payload,
       };
+    case ITEM_COMPLETE:
+      return {
+        ...state,
+        items: [
+          ...state.items.filter((item) => item.id !== action.payload.id),
+          action.payload,
+        ],
+      };
     default:
+      console.log(action.payload);
       return state;
   }
 }

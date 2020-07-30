@@ -40,6 +40,7 @@ export const completeItem = (id) => (dispatch, getState) => {
     .then((res) => {
       dispatch({
         type: ITEM_COMPLETE,
+        payload: res.data,
       });
     })
     .catch((err) => console.log(err.response.data));
