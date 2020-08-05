@@ -29,3 +29,19 @@
   animation-duration: 300ms;
   animation-fill-mode: forwards;
 }
+
+.input {
+  @apply w-3/4 border-solid border border-gray-600 m-1 text-center;
+}
+
+.btn-submit {
+  @apply p-2 cursor-pointer m-1;
+}
+
+.header-one {
+  @apply text-center text-5xl font-extrabold m-1;
+}
+
+.header-two {
+  @apply text-center text-2xl m-1 font-thin;
+}

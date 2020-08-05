@@ -56,8 +56,8 @@ export default function Register(props) {
             : "bg-white border-solid border border-gray-200"
         } w-3/4 p-2 text-center shadow-md`}
       >
-        <h1 className="text-center text-5xl font-extrabold m-1">Todoer</h1>
-        <h2 className="text-center text-2xl m-1 font-thin">Register</h2>
+        <h1 className="header-one">Todoer</h1>
+        <h2 className="header-two">Register</h2>
         <form
           className="flex flex-col m-3 items-center justify-center"
           onSubmit={onSubmit}
@@ -70,7 +70,7 @@ export default function Register(props) {
             type="text"
             value={email}
             onChange={onChange}
-            className={`${inputStyles} w-3/4 border-solid border border-gray-600 m-1`}
+            className={`${inputStyles} input`}
           ></input>
 
           <label htmlFor="username" className="m-1">
@@ -81,7 +81,7 @@ export default function Register(props) {
             type="text"
             value={username}
             onChange={onChange}
-            className={`${inputStyles} w-3/4 border-solid border border-gray-600 m-1`}
+            className={`${inputStyles} input`}
           ></input>
           <label htmlFor="password" className="m-1">
             Password
@@ -91,7 +91,7 @@ export default function Register(props) {
             id="password"
             value={password}
             onChange={onChange}
-            className={`${inputStyles} w-3/4 border-solid border border-gray-600 m-1`}
+            className={`${inputStyles} input`}
           ></input>
           <span className="flex justify-center items-center">
             <input
@@ -104,7 +104,7 @@ export default function Register(props) {
             <p className="m-1">Show Password</p>
           </span>
           <input
-            className={`${inputStyles} p-2 cursor-pointer m-1`}
+            className={`${inputStyles} btn-submit`}
             type="submit"
             value="Create Account!"
             placeholder="password"

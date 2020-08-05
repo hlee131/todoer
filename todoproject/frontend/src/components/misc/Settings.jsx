@@ -68,11 +68,7 @@ export default function Settings() {
       </Link>
       {/* </div> */}
       <section className="w-screen">
-        <h1
-          className={`text-center text-3xl font-extrabold m-1 mt-4 ${textColor}`}
-        >
-          Account Settings
-        </h1>
+        <h1 className={`header-one mt-4 ${textColor}`}>Account Settings</h1>
         <form className="flex flex-col w-screen justify-center items-center">
           <label htmlFor="username" className={`m-1 ${textColor}`}>
             Username
@@ -80,7 +76,7 @@ export default function Settings() {
           <input
             type="text"
             id="username"
-            className={`${inputStyles} w-1/2 border-solid border border-gray-600 m-1`}
+            className={`${inputStyles} input`}
             onChange={(e) => setUsername(e.target.value)}
             value={username}
           />
@@ -91,7 +87,7 @@ export default function Settings() {
           <input
             type="text"
             id="email"
-            className={`${inputStyles} w-1/2 border-solid border border-gray-600 m-1`}
+            className={`${inputStyles} input`}
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
@@ -101,7 +97,7 @@ export default function Settings() {
           <input
             type={visible}
             id="password"
-            className={`${inputStyles} w-1/2 border-solid border border-gray-600 m-1`}
+            className={`${inputStyles} input`}
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
@@ -118,9 +114,7 @@ export default function Settings() {
         </form>
       </section>
       <section className="w-screen">
-        <h1 className={`text-center text-3xl font-extrabold m-1 ${textColor}`}>
-          Display Setting
-        </h1>
+        <h1 className={`header-one ${textColor}`}>Display Setting</h1>
         <form className="flex flex-col items-center w-screen">
           <label htmlFor="style" className={`m-1 ${textColor}`}>
             Style Settings
