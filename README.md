@@ -11,7 +11,7 @@ Todoer is a todo app that I built to learn Django REST Framework and React.
 2. Edit Account Info (DONE)
 3. Light Dark Mode (DONE)
 4. OAuth
-5. Categories
+5. Categories (WIP)
 6. Slack / Messanger bot
 7. Use @apply with Tailwind for cleaner classes (DONE)
 8. Incomplete items
@@ -21,6 +21,8 @@ Todoer is a todo app that I built to learn Django REST Framework and React.
 12. Better UX
     - automatically set navVisible to hidden after selecting new filter
     - newest items first instead of vice versa
+    - delete items (use @action decorator to create delete-all endpoint)
+13. Add Landing page for product.
 
 # Frameworks Used
 

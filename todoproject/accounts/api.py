@@ -11,11 +11,12 @@ from .serializers import UserSerializer
 class UserAPI(generics.GenericAPIView, mixins.CreateModelMixin, mixins.UpdateModelMixin):
     """ 
     API endpoint for user accepts POST, DELETE, and PATCH, 
-    for creating new account, deleting account, and updating user info respectively 
+    for creating new account, deleting/deactivating account, and updating user info respectively 
     """
     serializer_class = UserSerializer
     queryset = User.objects.all()
 
+    # TODO: Wrapping required?
     def patch(self, request, *args, **kwargs):
         return self.partial_update(request, *args, **kwargs)
 
