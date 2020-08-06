@@ -95,7 +95,10 @@ function Login(props) {
           ></input>
         </form>
         <span className="inline-block m-4">
-          <a className={`${textColor} cursor-pointer font-thin`}>
+          <a
+            href="/password-reset-first"
+            className={`${textColor} cursor-pointer font-thin`}
+          >
             Forgot password?
           </a>
           <span className="hidden sm:inline"> | </span>

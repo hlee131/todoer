@@ -1,3 +1,8 @@
+import smtpd, ssl
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import os
+
 from rest_framework import generics, mixins, permissions, status
 from rest_framework.response import Response
 from rest_framework import status
@@ -5,9 +10,9 @@ from rest_framework import status
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 
-from .serializers import UserSerializer
+from .serializers import UserSerializer, ResetTokenSerializer
+from .models import ResetToken
 
-# Register
 class UserAPI(generics.GenericAPIView, mixins.CreateModelMixin, mixins.UpdateModelMixin):
     """ 
     API endpoint for user accepts POST, DELETE, and PATCH, 
@@ -40,3 +45,28 @@ class UserAPI(generics.GenericAPIView, mixins.CreateModelMixin, mixins.UpdateMod
             permission_classes = (permissions.IsAuthenticated,)
 
         return [permission() for permission in permission_classes]
+
+class ResetTokenAPI(generics.CreateAPIView):
+    """ 
+    API endpoint for creating password reset tokens
+    Also responsible for sending out reset emails
+    """
+    serializer_class = ResetTokenSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            token, email = self.perform_create(serializer)
+            _send_email(token, email)
+
+        else:
+            pass
+        
+def _send_email(token, email):
+    sender = 'scriptingtesting197@gmail.com'
+    receiver = email
+    file_path = os.path.split(os.path.split(os.getcwd())) + r'\\SECRETS.txt'
+    with open(file_path, 'r') as f:
+        password = f.readlines()[0]
+
+    

@@ -1,7 +1,12 @@
+import secrets
+import hashlib
+
 from rest_framework import serializers
 
 from django.contrib.auth.models import User
 from django.apps import apps
+
+from .models import ResetToken
 
 class UserSerializer(serializers.ModelSerializer):
     """ Serializer for default user model from django """
@@ -32,3 +37,23 @@ class UserSerializer(serializers.ModelSerializer):
             pass
         instance.save()
         return instance
+
+class ResetTokenSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ResetToken
+        fields = ['email']
+
+    def validate_email(self, value):
+        try: user = User.objects.get(email=value)
+        except User.DoesNotExist: return False
+        return True
+        
+    def create(self, validated_data):
+        email = validated_data.email
+        unhashed_token = secrets.token_urlsafe()
+        hashed_token = 
+        user = User.objects.get(email=email)
+        token = ResetToken.objects.create(token=hashed_token, user=user, email=email)
+        token.save()
+        return unhashed_token, email
+        
