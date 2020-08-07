@@ -3,17 +3,22 @@ import {
   NEW_ITEM,
   ITEM_COMPLETE,
   FILTER,
-  SWITCH,
+  GET_CATEGORIES,
 } from "../actions/types";
-import { applyMiddleware } from "redux";
 
 const initialState = {
   items: [],
   filter: "all",
+  categories: [],
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
+    case GET_CATEGORIES:
+      return {
+        ...state,
+        categories: action.payload,
+      };
     case GET_ITEMS:
       return {
         ...state,

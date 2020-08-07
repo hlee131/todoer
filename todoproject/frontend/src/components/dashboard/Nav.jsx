@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { logout } from "../../actions/accounts";
+import { getCategories } from "../../actions/todo";
 import { navVisible } from "../../actions/styles";
 
 import { FILTER } from "../../actions/types";
+import todo from "../../reducers/todo";
 
 export default function Nav() {
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCategories());
+  }, []);
+
   const styles = useSelector((state) => state.styles);
   const textColor = styles.style === "dark" ? "text-white" : "text-black";
   const bgColor = styles.style === "dark" ? "bg-gray-900" : "bg-gray-200";
+
+  const todoState = useSelector((state) => state.todo);
 
   const onSelect = (e) => {
     // First reset everything, then select selected and replace background
@@ -57,7 +65,7 @@ export default function Nav() {
       </svg>
       <ul className="flex flex-col items-center mt-3">
         <li>
-          <h2 className={`${textColor} font-black text-2xl`}>Categories</h2>
+          <h2 className={`${textColor} font-black text-2xl`}>Status</h2>
         </li>
         <li
           id="all"
@@ -81,6 +89,25 @@ export default function Nav() {
         >
           Completed
         </li>
+      </ul>
+      <ul className="flex flex-col items-center mt-3">
+        <li>
+          <h2 className={`${textColor} font-black text-2xl`}>Categories</h2>
+        </li>
+        {todoState.categories.length !== 0 ? (
+          todoState.categories.map((item) => (
+            <li
+              key={item.id}
+              id={item.name}
+              className={`${textColor} ${bgColor} mt-4  p-1 rounded-lg cursor-pointer selector`}
+              onClick={onSelect}
+            >
+              {item.name}
+            </li>
+          ))
+        ) : (
+          <p>You haven't created any categories yet</p>
+        )}
       </ul>
       <div className="w-full text-center bottom-0 absolute mb-5 sm:w-1/4">
         <a

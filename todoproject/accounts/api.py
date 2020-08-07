@@ -84,7 +84,7 @@ def _send_email(token, email):
     text = f"""
     Someone requested a password reset on Todoer. If you did not request for it, you can safely ignore this email. \n
     Otherwise, click on the link below to reset your password:\n\n
-    https://localhost:8000/reset-password?token={token}\n\n
+    https://localhost:8000/api/auth/reset-password?token={token}\n\n
     Thanks, Todoer
     """
     html = f"""
@@ -93,7 +93,7 @@ def _send_email(token, email):
             <h1>Todoer</h1>
             <p>
             Someone requested a password reset on Todoer. If you did not request for it, you can safely ignore this email.
-            Otherwise, click <a href="https://localhost:8000/reset-password?token={token}">here</a> to reset your password
+            Otherwise, click <a href="https://localhost:8000/api/auth/reset-password?token={token}">here</a> to reset your password
             Thanks, Todoer
             </p>
         </body>

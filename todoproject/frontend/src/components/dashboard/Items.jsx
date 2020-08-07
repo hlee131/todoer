@@ -28,8 +28,8 @@ export default function Items() {
           (item) =>
             item.completed === (todo.filter === "complete" ? true : false)
         );
-      // default:
-      //   return todo.items.filter(item => item.category === todo.filter)
+      default:
+        return todo.items.filter((item) => item.category === todo.filter);
     }
   };
 

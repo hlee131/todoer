@@ -9,3 +9,4 @@ export const ITEM_COMPLETE = "ITEM_COMPLETE";
 export const FILTER = "FILTER";
 export const SWITCH = "SWITCH";
 export const NAV_VISIBLE = "NAV_VISIBLE";
+export const GET_CATEGORIES = "GET_CATEGORIES";
