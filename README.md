@@ -21,7 +21,7 @@ Todoer is a todo app that I built to learn Django REST Framework and React.
 12. Better UX
     - automatically set navVisible to hidden after selecting new filter
     - newest items first instead of vice versa
-    - delete items (use @action decorator to create delete-all endpoint)
+    - delete items (API endpoint created at api/todos/clear_todos, no front end yet)
 13. Add Landing page for product.
 
 # Frameworks Used

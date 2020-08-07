@@ -38,7 +38,6 @@ export default function (state = initialState, action) {
         ],
       };
     default:
-      console.log(action.payload);
       return state;
   }
 }

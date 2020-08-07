@@ -1,4 +1,5 @@
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, response, status
+from rest_framework.decorators import action
 
 from .models import Todo
 from .serializers import TodoSerializer, CategorySerializer
@@ -17,6 +18,15 @@ class TodoViewset(AddUserMixin, viewsets.ModelViewSet):
     def get_queryset(self):
         """ Queryset is all user's todos """
         return self.request.user.todos.all()
+
+    @action(detail=False, methods=['delete'])
+    def clear_todos(self, request):
+        """ Clears all a user's completed todos """
+        for todo in self.get_queryset():
+            if todo.completed:
+                todo.delete()
+
+        return response.Response({'Message': 'Completed todos cleared'}, status=status.HTTP_204_NO_CONTENT)
 
 class CategoryViewset(AddUserMixin, viewsets.ModelViewSet):
     """

@@ -1,6 +1,7 @@
-import smtpd, ssl
+import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from pathlib import Path
 import os
 
 from rest_framework import generics, mixins, permissions, status
@@ -60,12 +61,18 @@ class ResetTokenAPI(generics.CreateAPIView):
             _send_email(token, email)
 
         else:
+            print('invalid')
             pass
+
+        return Response({"Message": "Email sent to server"}, status=status.HTTP_200_OK)
+
+    def perform_create(self, serializer):
+        return serializer.save()
         
 def _send_email(token, email):
     sender = 'scriptingtesting197@gmail.com'
     receiver = email
-    file_path = os.path.split(os.path.split(os.getcwd())[0])[0] + r'\\SECRETS.txt'
+    file_path = str(Path(os.getcwd()).parent) + r'\SECRETS.txt'
     with open(file_path, 'r') as f:
         password = f.readlines()[0]
 
@@ -93,8 +100,8 @@ def _send_email(token, email):
     </html>
     """
 
-    message.attatch(MIMEText(text, "plain"))
-    message.attatch(MIMEText(html, 'html'))
+    message.attach(MIMEText(text, "plain"))
+    message.attach(MIMEText(html, 'html'))
 
     context = ssl.create_default_context()
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:

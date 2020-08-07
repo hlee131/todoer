@@ -46,11 +46,11 @@ class ResetTokenSerializer(serializers.ModelSerializer):
 
     def validate_email(self, value):
         try: user = User.objects.get(email=value)
-        except User.DoesNotExist: return False
-        return True
-        
+        except User.DoesNotExist: raise serializers.ValidationError('No user')
+        return value
+         
     def create(self, validated_data):
-        email = validated_data.email
+        email = validated_data['email']
         unhashed_token = secrets.token_urlsafe()
         salt = os.urandom(32)
         key = hashlib.pbkdf2_hmac('sha256', unhashed_token.encode('utf-8'), salt, 1000)
@@ -58,5 +58,5 @@ class ResetTokenSerializer(serializers.ModelSerializer):
         user = User.objects.get(email=email)
         token = ResetToken.objects.create(token=hashed_token, user=user, email=email)
         token.save()
-        return unhashed_token, email
+        return (unhashed_token, email)
         

@@ -25,13 +25,9 @@ export default function RequestReset() {
       email,
     });
 
-    axios
-      .post("/api/auth/request-reset", body, config)
-      .then((res) => {
-        document.getElementById("initial").classList += "hidden";
-        document.getElementById("success").classList.trim(" hidden");
-      })
-      .catch((err) => console.log(err.response.data));
+    axios.post("/api/auth/request-reset", body, config);
+    document.getElementById("initial").classList.add("hidden");
+    document.getElementById("success").classList.remove("hidden");
   };
 
   return (
@@ -96,7 +92,8 @@ export default function RequestReset() {
           } w-3/4 p-2 text-center shadow-md`}
         >
           <h1 className={`header-one`}>Todoer</h1>
-          <h2 className={`header-two`}>Password Reset</h2>
+          <h2 className={`header-two mt-2`}>Password reset email sent</h2>
+          <p className="mb-2">Please check your inbox</p>
           <span className="inline-block m-4">
             <Link className={`${textColor} cursor-pointer font-thin`} to="/">
               Return to Login and Registration Page
