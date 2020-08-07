@@ -38,6 +38,7 @@ Backend: Django REST Framework
 ## Misc Notes
 
 - If deploying, generate new secret key. Secret key exposed on github
+- Change password reset links on deploy.
 
 ## Credits
 

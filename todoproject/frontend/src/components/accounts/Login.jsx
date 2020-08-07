@@ -95,12 +95,12 @@ function Login(props) {
           ></input>
         </form>
         <span className="inline-block m-4">
-          <a
-            href="/password-reset-first"
+          <Link
+            to="/request-reset"
             className={`${textColor} cursor-pointer font-thin`}
           >
             Forgot password?
-          </a>
+          </Link>
           <span className="hidden sm:inline"> | </span>
           <br className="sm:hidden" />
           <Link

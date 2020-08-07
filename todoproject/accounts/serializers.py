@@ -1,5 +1,6 @@
 import secrets
 import hashlib
+import os
 
 from rest_framework import serializers
 
@@ -51,7 +52,9 @@ class ResetTokenSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         email = validated_data.email
         unhashed_token = secrets.token_urlsafe()
-        hashed_token = 
+        salt = os.urandom(32)
+        key = hashlib.pbkdf2_hmac('sha256', unhashed_token.encode('utf-8'), salt, 1000)
+        hashed_token = salt + key
         user = User.objects.get(email=email)
         token = ResetToken.objects.create(token=hashed_token, user=user, email=email)
         token.save()

@@ -65,8 +65,38 @@ class ResetTokenAPI(generics.CreateAPIView):
 def _send_email(token, email):
     sender = 'scriptingtesting197@gmail.com'
     receiver = email
-    file_path = os.path.split(os.path.split(os.getcwd())) + r'\\SECRETS.txt'
+    file_path = os.path.split(os.path.split(os.getcwd())[0])[0] + r'\\SECRETS.txt'
     with open(file_path, 'r') as f:
         password = f.readlines()[0]
 
-    
+    message = MIMEMultipart("alternative")
+    message['Subject'] = "Todoer Password Reset"
+    message['From'] = sender
+    message['To'] = receiver
+
+    text = f"""
+    Someone requested a password reset on Todoer. If you did not request for it, you can safely ignore this email. \n
+    Otherwise, click on the link below to reset your password:\n\n
+    https://localhost:8000/reset-password?token={token}\n\n
+    Thanks, Todoer
+    """
+    html = f"""
+    <html>
+        <body>
+            <h1>Todoer</h1>
+            <p>
+            Someone requested a password reset on Todoer. If you did not request for it, you can safely ignore this email.
+            Otherwise, click <a href="https://localhost:8000/reset-password?token={token}">here</a> to reset your password
+            Thanks, Todoer
+            </p>
+        </body>
+    </html>
+    """
+
+    message.attatch(MIMEText(text, "plain"))
+    message.attatch(MIMEText(html, 'html'))
+
+    context = ssl.create_default_context()
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+        server.login(sender, password)
+        server.sendmail(sender, receiver, message.as_string())

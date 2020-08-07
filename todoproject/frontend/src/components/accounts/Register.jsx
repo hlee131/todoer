@@ -111,7 +111,9 @@ export default function Register(props) {
           ></input>
         </form>
         <span className="inline-block m-4">
-          <a className="cursor-pointer font-thin">Forgot password?</a>
+          <Link to="/request-reset" className="cursor-pointer font-thin">
+            Forgot password?
+          </Link>
           <span className="hidden sm:inline"> | </span>
           <br className="sm:hidden" />
           <Link className="cursor-pointer font-thin" to="/login">

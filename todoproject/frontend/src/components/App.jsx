@@ -10,6 +10,7 @@ import Register from "./accounts/Register.jsx";
 import PrivateRoute from "./misc/PrivateRoute.jsx";
 import Settings from "./misc/Settings.jsx";
 import Dashboard from "./dashboard/Dashboard.jsx";
+import RequestReset from "./accounts/RequestReset.jsx";
 
 export default function App(props) {
   localStorage.setItem(
@@ -28,6 +29,7 @@ export default function App(props) {
               <PrivateRoute exact path="/settings" component={Settings} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
+              <Route exact path="/request-reset" component={RequestReset} />
             </Switch>
           </div>
         </Fragment>
