@@ -1,8 +1,13 @@
 import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { update, deleteAcc, logout } from "../../actions/accounts";
+import {
+  update,
+  deleteAcc,
+  logout,
+  clearCompleted,
+} from "../../actions/accounts";
 import { change } from "../../actions/styles";
 
 export default function Settings() {
@@ -36,7 +41,10 @@ export default function Settings() {
   const deleteAccount = () => {
     // TODO: Add confirmation
     dispatch(deleteAcc());
-    dispatch(logout());
+  };
+
+  const clearTodos = () => {
+    dispatch(clearCompleted());
   };
 
   return (
@@ -111,6 +119,16 @@ export default function Settings() {
             ></input>
             <p className={`m-1 ${textColor}`}>Show Password</p>
           </span>
+          <button
+            type="button"
+            className="bg-red-400 p-1 m-2 rounded-lg cursor-pointer"
+            onClick={clearTodos}
+          >
+            Clear Todos
+          </button>
+          <p className={`${textColor}`}>
+            WARNING: This button will delete any todos you have completed
+          </p>
         </form>
       </section>
       <section className="w-screen">

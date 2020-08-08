@@ -7,7 +7,7 @@
     "dev": "npm run watch:css && webpack --mode development --watch ./todoproject/frontend/src/index.jsx --output ./todoproject/frontend/static/frontend/main.js",
     "build": "npm run build:css && webpack --mode production ./todoproject/frontend/src/index.jsx --output ./todoproject/frontend/static/frontend/main.js",
     "build:css": "postcss ./todoproject/frontend/src/tailwind/tailwind.css -o ./todoproject/frontend/src/tailwind.css",
-    "watch:css": "postcss ./todoproject/frontend/src/tailwind/tailwind.css -o ./todoproject/frontend/src/tailwind.css"
+    "watch:css": "postcss ./todoproject/frontend/src/tailwind/tailwind.css -o ./todoproject/frontend/src/tailwind.css --watch"
   },
   "author": "Hansel Lee",
   "license": "ISC",

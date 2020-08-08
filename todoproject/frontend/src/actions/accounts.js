@@ -6,6 +6,7 @@ import {
   LOGIN_SUCCESS,
   REGISTER_SUCCESS,
   LOGOUT,
+  DELETE_COMPLETED,
 } from "./types";
 
 import { tokenConfig } from "./todo";
@@ -67,7 +68,7 @@ export const register = (username, password, email) => (dispatch) => {
     });
 };
 
-export const logout = () => (dispatch) => {
+export var logout = () => (dispatch) => {
   dispatch({
     type: LOGOUT,
   });
@@ -104,9 +105,25 @@ export const update = (username, password, email, ran) => (
   }
 };
 
-export const deleteAcc = () => (getState) => {
+export const deleteAcc = () => (dispatch, getState) => {
   axios
     .delete("/api/auth/user", tokenConfig(getState))
-    .then((res) => console.log("deleted"))
+    .then((res) =>
+      dispatch({
+        type: LOGOUT,
+      })
+    )
+    .catch((err) => console.log(err.response.data));
+};
+
+export const clearCompleted = () => (dispatch, getState) => {
+  axios
+    .delete("/api/todo/todos/clear_todos", tokenConfig(getState))
+    .then(() => {
+      dispatch({
+        type: DELETE_COMPLETED,
+      });
+      alert("Completed todos deleted");
+    })
     .catch((err) => console.log(err.response.data));
 };

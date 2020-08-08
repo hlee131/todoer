@@ -26,8 +26,8 @@ Todoer is a todo app that I built to learn Django REST Framework and React.
 
 # Frameworks Used
 
-CSS: Tailwind
-Frontend: React
+CSS: Tailwind  
+Frontend: React  
 Backend: Django REST Framework
 
 # Bugs

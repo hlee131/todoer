@@ -19,7 +19,7 @@ class TodoViewset(AddUserMixin, viewsets.ModelViewSet):
         """ Queryset is all user's todos """
         return self.request.user.todos.all()
 
-    @action(detail=False, methods=['delete'])
+    @action(detail=False, methods=['delete'], permission_classes=(permissions.IsAuthenticated,))
     def clear_todos(self, request):
         """ Clears all a user's completed todos """
         for todo in self.get_queryset():

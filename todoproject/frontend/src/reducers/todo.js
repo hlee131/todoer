@@ -4,9 +4,11 @@ import {
   ITEM_COMPLETE,
   FILTER,
   GET_CATEGORIES,
+  DELETE_COMPLETED,
 } from "../actions/types";
 
 const initialState = {
+  // TODO: More efficient as object instead of array?
   items: [],
   filter: "all",
   categories: [],
@@ -35,12 +37,20 @@ export default function (state = initialState, action) {
         filter: action.payload,
       };
     case ITEM_COMPLETE:
+      let object = state.items.filter(
+        (item) => item.id === action.payload.id
+      )[0];
+      let index = state.items.indexOf(object);
+      let newItems = state.items;
+      newItems[index].completed = true;
       return {
         ...state,
-        items: [
-          ...state.items.filter((item) => item.id !== action.payload.id),
-          action.payload,
-        ],
+        items: newItems,
+      };
+    case DELETE_COMPLETED:
+      return {
+        ...state,
+        items: state.items.filter((item) => item.completed === false),
       };
     default:
       return state;

@@ -24,9 +24,6 @@ class UserSerializer(serializers.ModelSerializer):
         user = User.objects.create(username=validated_data['username'], email=validated_data['email'])
         user.set_password(validated_data['password'])
         user.save()
-        category_model = apps.get_model('todo', 'Category')
-        no_category = category_model(user=user, name='no_category')
-        no_category.save()
         return user
 
     def update(self, instance, validated_data):

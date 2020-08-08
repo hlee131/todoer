@@ -106,7 +106,7 @@ export default function Nav() {
             </li>
           ))
         ) : (
-          <p>You haven't created any categories yet</p>
+          <p className={textColor}>You haven't created any categories yet</p>
         )}
       </ul>
       <div className="w-full text-center bottom-0 absolute mb-5 sm:w-1/4">

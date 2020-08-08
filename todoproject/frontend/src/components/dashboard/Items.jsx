@@ -12,8 +12,6 @@ export default function Items() {
   }, []);
 
   const onCheck = (e) => {
-    // TODO: Move others up via height
-    // TODO: Only when in completed mode
     e.target.parentNode.style.animationPlayState = "running";
     dispatch(completeItem(e.target.id));
   };
