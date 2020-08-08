@@ -3,7 +3,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo</title>
-    <link rel="stylesheet" href="../../../frontend/src/tailwind.css" />
+    {% load static %}
+    <link rel="stylesheet" href={% static "accounts/tailwind.css" %} />
   </head>
   <body cz-shortcut-listen="true">
     <div id="app">
@@ -16,11 +17,18 @@
           >
             <h1 class="header-one">Todoer</h1>
             <h2 class="header-two">Password Reset</h2>
-            <form class="flex flex-col m-3 items-center justify-center">
+            <form
+              id="reset-form"
+              class="flex flex-col m-3 items-center justify-center"
+              onsubmit="return onSubmit()"
+              method="POST"
+            >
+            {% csrf_token %}
               <label for="password" class="text-black m-1">New Password</label
               ><input
                 id="password"
                 type="password"
+                name="first-pass"
                 class="text-black bg-gray-100 input"
                 value=""
               /><label for="password-again" class="text-black m-1"
@@ -28,35 +36,29 @@
               ><input
                 type="password"
                 id="password-again"
+                name="second-pass"
                 class="text-black bg-gray-100 input"
                 value=""
               /><span class="flex justify-center items-center"
-                ><input type="checkbox" class="m-1" />
+                ><input
+                  onchange="onChange()"
+                  id="show-password"
+                  type="checkbox"
+                  class="m-1"
+                />
                 <p class="text-black m-1">Show Password</p></span
               ><input
                 class="text-black bg-gray-100 btn-submit"
                 type="submit"
                 placeholder="password"
-                value="Login"
+                value="Reset Password"
               />
             </form>
-            <span class="inline-block m-4"
-              ><a
-                class="text-black cursor-pointer font-thin"
-                href="#/request-reset"
-                >Forgot password?</a
-              ><span class="hidden sm:inline"> | </span
-              ><br class="sm:hidden" /><a
-                class="text-black cursor-pointer font-thin"
-                href="#/register"
-                >Don't have an account?</a
-              ></span
-            >
           </div>
         </div>
       </div>
     </div>
-
-    <script src="/static/frontend/main.js"></script>
+    {% load static %}
+    <script type="text/javascript" src={% static "accounts/script.js" %}></script>
   </body>
 </html>

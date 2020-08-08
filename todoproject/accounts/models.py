@@ -9,7 +9,7 @@ def get_expiration_date():
     return datetime.now() + timedelta(weeks=1)
 
 class ResetToken(models.Model):
-    token = models.CharField(max_length=50) 
+    token = models.BinaryField(bytes) 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='token')
     expiration_date = models.DateField(default=get_expiration_date)
     email = models.EmailField()

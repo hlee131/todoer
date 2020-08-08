@@ -10,6 +10,7 @@ from rest_framework import status
 
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
+from django.db import IntegrityError
 
 from .serializers import UserSerializer, ResetTokenSerializer
 from .models import ResetToken
@@ -57,6 +58,9 @@ class ResetTokenAPI(generics.CreateAPIView):
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
+            # Delete past token if one exists, generate new one
+            try: User.objects.get(email=request.data.get('email')).token.delete()
+            except: pass
             token, email = self.perform_create(serializer)
             _send_email(token, email)
 
@@ -84,7 +88,7 @@ def _send_email(token, email):
     text = f"""
     Someone requested a password reset on Todoer. If you did not request for it, you can safely ignore this email. \n
     Otherwise, click on the link below to reset your password:\n\n
-    https://localhost:8000/api/auth/reset-password?token={token}\n\n
+    http://localhost:8000/api/auth/reset-password?token={token}&email={email}\n\n
     Thanks, Todoer
     """
     html = f"""
@@ -93,7 +97,7 @@ def _send_email(token, email):
             <h1>Todoer</h1>
             <p>
             Someone requested a password reset on Todoer. If you did not request for it, you can safely ignore this email.
-            Otherwise, click <a href="https://localhost:8000/api/auth/reset-password?token={token}">here</a> to reset your password
+            Otherwise, click <a href="http://localhost:8000/api/auth/reset-password?token={token}&email={email}">here</a> to reset your password
             Thanks, Todoer
             </p>
         </body>

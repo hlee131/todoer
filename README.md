@@ -17,11 +17,12 @@ Todoer is a todo app that I built to learn Django REST Framework and React.
 8. Incomplete items
 9. Error boxes / handling
 10. Migrate tokens from localStorage into cookies (bit.ly/3eZ2MAh)
-11. Forgot Password (WIP)
+11. Forgot Password (DONE)
 12. Better UX
     - automatically set navVisible to hidden after selecting new filter
     - newest items first instead of vice versa
-    - delete items (API endpoint created at api/todos/clear_todos, no front end yet)
+    - delete items (DONE)
+    - add css to password reset
 13. Add Landing page for product.
 
 # Frameworks Used
