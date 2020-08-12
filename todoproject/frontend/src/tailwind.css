@@ -1,389 +1,116 @@
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-
-/* Document
-   ========================================================================== */
-
-/**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in iOS.
- */
-
 html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
 }
-
-/* Sections
-   ========================================================================== */
-
-/**
- * Remove the margin in all browsers.
- */
-
 body {
   margin: 0;
 }
-
-/**
- * Render the `main` element consistently in IE.
- */
-
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
-
-/* Grouping content
-   ========================================================================== */
-
-/**
- * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
- */
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-/* Text-level semantics
-   ========================================================================== */
-
-/**
- * Remove the gray background on active links in IE 10.
- */
-
 a {
   background-color: transparent;
 }
-
-/**
- * 1. Remove the bottom border in Chrome 57-
- * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
- */
-
-/**
- * Add the correct font weight in Chrome, Edge, and Safari.
- */
-
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
-
-/**
- * Add the correct font size in all browsers.
- */
-
-/**
- * Prevent `sub` and `sup` elements from affecting the line height in
- * all browsers.
- */
-
-/* Embedded content
-   ========================================================================== */
-
-/**
- * Remove the border on images inside links in IE 10.
- */
-
-/* Forms
-   ========================================================================== */
-
-/**
- * 1. Change the font styles in all browsers.
- * 2. Remove the margin in Firefox and Safari.
- */
-
 button,
 input,
 select {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
 }
-
-/**
- * Show the overflow in IE.
- * 1. Show the overflow in Edge.
- */
-
 button,
-input { /* 1 */
+input {
   overflow: visible;
 }
-
-/**
- * Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 1. Remove the inheritance of text transform in Firefox.
- */
-
 button,
-select { /* 1 */
+select {
   text-transform: none;
 }
-
-/**
- * Correct the inability to style clickable types in iOS and Safari.
- */
-
-button,
 [type="button"],
 [type="reset"],
-[type="submit"] {
+[type="submit"],
+button {
   -webkit-appearance: button;
 }
-
-/**
- * Remove the inner border and padding in Firefox.
- */
-
-button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
+[type="submit"]::-moz-focus-inner,
+button::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
-
-/**
- * Restore the focus styles unset by the previous rule.
- */
-
-button:-moz-focusring,
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
+[type="submit"]:-moz-focusring,
+button:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
-
-/**
- * Correct the padding in Firefox.
- */
-
-/**
- * 1. Correct the text wrapping in Edge and IE.
- * 2. Correct the color inheritance from `fieldset` elements in IE.
- * 3. Remove the padding so developers are not caught out when they zero out
- *    `fieldset` elements in all browsers.
- */
-
-/**
- * Add the correct vertical alignment in Chrome, Firefox, and Opera.
- */
-
-/**
- * Remove the default vertical scrollbar in IE 10+.
- */
-
-/**
- * 1. Add the correct box sizing in IE 10.
- * 2. Remove the padding in IE 10.
- */
-
 [type="checkbox"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
+  box-sizing: border-box;
+  padding: 0;
 }
-
-/**
- * Correct the cursor style of increment and decrement buttons in Chrome.
- */
-
-/**
- * 1. Correct the odd appearance in Chrome and Safari.
- * 2. Correct the outline style in Safari.
- */
-
-/**
- * Remove the inner padding in Chrome and Safari on macOS.
- */
-
-/**
- * 1. Correct the inability to style clickable types in iOS and Safari.
- * 2. Change font properties to `inherit` in Safari.
- */
-
-/* Interactive
-   ========================================================================== */
-
-/*
- * Add the correct display in Edge, IE 10+, and Firefox.
- */
-
-/*
- * Add the correct display in all browsers.
- */
-
-/* Misc
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 10+.
- */
-
-/**
- * Add the correct display in IE 10.
- */
-
 [hidden] {
   display: none;
 }
-
-/**
- * Manually forked from SUIT CSS Base: https://github.com/suitcss/base
- * A thin layer on top of normalize.css that provides a starting point more
- * suitable for web applications.
- */
-
-/**
- * Removes the default spacing and border for appropriate elements.
- */
-
-
 h1,
 h2,
 p {
   margin: 0;
 }
-
 button {
   background-color: transparent;
   background-image: none;
 }
-
-/**
- * Work around a Firefox/IE bug where the transparent `button` background
- * results in a loss of the default `button` focus styles.
- */
-
 button:focus {
   outline: 1px dotted;
   outline: 5px auto -webkit-focus-ring-color;
 }
-
-
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-
-/**
- * Tailwind custom reset styles
- */
-
-/**
- * 1. Use the user's configured `sans` font-family (with Tailwind's default
- *    sans-serif font stack as a fallback) as a sane default.
- * 2. Use Tailwind's default "normal" line-height so the user isn't forced
- *    to override it to ensure consistency even when using the default theme.
- */
-
 html {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
-  line-height: 1.5; /* 2 */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  line-height: 1.5;
 }
-
-/**
- * 1. Prevent padding and border from affecting element width.
- *
- *    We used to set this in the html element and inherit from
- *    the parent element for everything else. This caused issues
- *    in shadow-dom-enhanced elements like <details> where the content
- *    is wrapped by a div with box-sizing set to `content-box`.
- *
- *    https://github.com/mozdevs/cssremedy/issues/4
- *
- *
- * 2. Allow adding a border to an element by just adding a border-width.
- *
- *    By default, the way the browser specifies that an element should have no
- *    border is by setting it's border-style to `none` in the user-agent
- *    stylesheet.
- *
- *    In order to easily add borders to elements by just setting the `border-width`
- *    property, we change the default border-style for all elements to `solid`, and
- *    use border-width to hide them instead. This way our `border` utilities only
- *    need to set the `border-width` property instead of the entire `border`
- *    shorthand, making our border utilities much more straightforward to compose.
- *
- *    https://github.com/tailwindcss/tailwindcss/pull/116
- */
-
 *,
-::before,
-::after {
-  box-sizing: border-box; /* 1 */
-  border-width: 0; /* 2 */
-  border-style: solid; /* 2 */
-  border-color: #e2e8f0; /* 2 */
+::after,
+::before {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e2e8f0;
 }
-
-/*
- * Ensure horizontal rules are visible by default
- */
-
-/**
- * Undo the `border-style: none` reset that Normalize applies to images so that
- * our `border-{width}` utilities have the expected effect.
- *
- * The Normalize reset is unnecessary for us since we default the border-width
- * to 0 on all elements.
- *
- * https://github.com/tailwindcss/tailwindcss/issues/362
- */
-
 input::-moz-placeholder {
   color: #a0aec0;
 }
-
 input:-ms-input-placeholder {
   color: #a0aec0;
 }
-
 input::-ms-input-placeholder {
   color: #a0aec0;
 }
-
 input::placeholder {
   color: #a0aec0;
 }
-
 button {
   cursor: pointer;
 }
-
 h1,
 h2 {
   font-size: inherit;
   font-weight: inherit;
 }
-
-/**
- * Reset links to optimize for opt-in styling instead of
- * opt-out.
- */
-
 a {
   color: inherit;
   text-decoration: inherit;
 }
-
-/**
- * Reset form element properties that are easy to forget to
- * style explicitly so you don't inadvertently introduce
- * styles that deviate from your design system. These styles
- * supplement a partial reset that is already applied by
- * normalize.css.
- */
-
 button,
 input,
 select {
@@ -391,399 +118,296 @@ select {
   line-height: inherit;
   color: inherit;
 }
-
-/**
- * Use the configured 'mono' font family for elements that
- * are expected to be rendered with a monospace font, falling
- * back to the system monospace stack if there is no configured
- * 'mono' font family.
- */
-
-/**
- * Make replaced elements `display: block` by default as that's
- * the behavior you want almost all of the time. Inspired by
- * CSS Remedy, with `svg` added as well.
- *
- * https://github.com/mozdevs/cssremedy/issues/14
- */
-
-
 svg {
   display: block;
   vertical-align: middle;
 }
-
-/**
- * Constrain images and videos to the parent width and preserve
- * their instrinsic aspect ratio.
- *
- * https://github.com/mozdevs/cssremedy/issues/14
- */
-
 .container {
   width: 100%;
 }
-
 @media (min-width: 640px) {
   .container {
     max-width: 640px;
   }
 }
-
 @media (min-width: 768px) {
   .container {
     max-width: 768px;
   }
 }
-
 @media (min-width: 1024px) {
   .container {
     max-width: 1024px;
   }
 }
-
 @media (min-width: 1280px) {
   .container {
     max-width: 1280px;
   }
 }
-
 .bg-white {
   --bg-opacity: 1;
   background-color: #fff;
   background-color: rgba(255, 255, 255, var(--bg-opacity));
 }
-
 .bg-gray-100 {
   --bg-opacity: 1;
   background-color: #f7fafc;
   background-color: rgba(247, 250, 252, var(--bg-opacity));
 }
-
 .bg-gray-200 {
   --bg-opacity: 1;
   background-color: #edf2f7;
   background-color: rgba(237, 242, 247, var(--bg-opacity));
 }
-
 .bg-gray-700 {
   --bg-opacity: 1;
   background-color: #4a5568;
   background-color: rgba(74, 85, 104, var(--bg-opacity));
 }
-
 .bg-gray-800 {
   --bg-opacity: 1;
   background-color: #2d3748;
   background-color: rgba(45, 55, 72, var(--bg-opacity));
 }
-
 .bg-gray-900 {
   --bg-opacity: 1;
   background-color: #1a202c;
   background-color: rgba(26, 32, 44, var(--bg-opacity));
 }
-
 .bg-red-300 {
   --bg-opacity: 1;
   background-color: #feb2b2;
   background-color: rgba(254, 178, 178, var(--bg-opacity));
 }
-
 .bg-red-400 {
   --bg-opacity: 1;
   background-color: #fc8181;
   background-color: rgba(252, 129, 129, var(--bg-opacity));
 }
-
 .bg-green-400 {
   --bg-opacity: 1;
   background-color: #68d391;
   background-color: rgba(104, 211, 145, var(--bg-opacity));
 }
-
 .bg-teal-300 {
   --bg-opacity: 1;
   background-color: #81e6d9;
   background-color: rgba(129, 230, 217, var(--bg-opacity));
 }
-
 .border-gray-200 {
   --border-opacity: 1;
   border-color: #edf2f7;
   border-color: rgba(237, 242, 247, var(--border-opacity));
 }
-
 .border-gray-600 {
   --border-opacity: 1;
   border-color: #718096;
   border-color: rgba(113, 128, 150, var(--border-opacity));
 }
-
 .rounded-lg {
   border-radius: 0.5rem;
 }
-
 .border-solid {
   border-style: solid;
 }
-
 .border {
   border-width: 1px;
 }
-
 .cursor-pointer {
   cursor: pointer;
 }
-
 .block {
   display: block;
 }
-
 .inline-block {
   display: inline-block;
 }
-
 .flex {
   display: flex;
 }
-
 .hidden {
   display: none;
 }
-
 .flex-col {
   flex-direction: column;
 }
-
 .items-center {
   align-items: center;
 }
-
 .justify-center {
   justify-content: center;
 }
-
 .justify-around {
   justify-content: space-around;
 }
-
 .float-right {
   float: right;
 }
-
 .float-left {
   float: left;
 }
-
 .font-thin {
   font-weight: 200;
 }
-
 .font-black {
   font-weight: 900;
 }
-
 .h-auto {
   height: auto;
 }
-
 .h-screen {
   height: 100vh;
 }
-
 .text-2xl {
   font-size: 1.5rem;
 }
-
 .m-1 {
   margin: 0.25rem;
 }
-
 .m-2 {
   margin: 0.5rem;
 }
-
 .m-3 {
   margin: 0.75rem;
 }
-
 .m-4 {
   margin: 1rem;
 }
-
 .mt-2 {
   margin-top: 0.5rem;
 }
-
 .mb-2 {
   margin-bottom: 0.5rem;
 }
-
 .mt-3 {
   margin-top: 0.75rem;
 }
-
 .mt-4 {
   margin-top: 1rem;
 }
-
 .mt-5 {
   margin-top: 1.25rem;
 }
-
 .mb-5 {
   margin-bottom: 1.25rem;
 }
-
 .min-h-screen {
   min-height: 100vh;
 }
-
 .overflow-hidden {
   overflow: hidden;
 }
-
 .p-1 {
   padding: 0.25rem;
 }
-
 .p-2 {
   padding: 0.5rem;
 }
-
 .p-5 {
   padding: 1.25rem;
 }
-
 .placeholder-current::-moz-placeholder {
   color: currentColor;
 }
-
 .placeholder-current:-ms-input-placeholder {
   color: currentColor;
 }
-
 .placeholder-current::-ms-input-placeholder {
   color: currentColor;
 }
-
 .placeholder-current::placeholder {
   color: currentColor;
 }
-
 .static {
   position: static;
 }
-
 .fixed {
   position: fixed;
 }
-
 .absolute {
   position: absolute;
 }
-
 .relative {
   position: relative;
 }
-
 .bottom-0 {
   bottom: 0;
 }
-
 .shadow-md {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
-
 .shadow-inner {
   box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 }
-
 .fill-current {
   fill: currentColor;
 }
-
 .text-center {
   text-align: center;
 }
-
 .text-black {
   --text-opacity: 1;
   color: #000;
   color: rgba(0, 0, 0, var(--text-opacity));
 }
-
 .text-white {
   --text-opacity: 1;
   color: #fff;
   color: rgba(255, 255, 255, var(--text-opacity));
 }
-
 .visible {
   visibility: visible;
 }
-
 .w-20 {
   width: 5rem;
 }
-
 .w-1\/2 {
   width: 50%;
 }
-
 .w-3\/4 {
   width: 75%;
 }
-
 .w-full {
   width: 100%;
 }
-
 .w-screen {
   width: 100vw;
 }
-
 .z-10 {
   z-index: 10;
 }
-
 @keyframes fade-out {
   0% {
     opacity: 1;
   }
-
   50% {
     opacity: 0.6;
   }
-
   75% {
     opacity: 0.3;
     height: 50%;
   }
-
   90% {
     opacity: 0.1;
     height: 0;
   }
-
   100% {
     opacity: 0;
     display: none;
   }
 }
-
 .fade {
   -webkit-animation-play-state: paused;
-          animation-play-state: paused;
+  animation-play-state: paused;
   -webkit-animation-name: fade-out;
-          animation-name: fade-out;
-  -webkit-animation-duration: 300ms;
-          animation-duration: 300ms;
+  animation-name: fade-out;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
   -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 }
-
 .input {
   width: 75%;
   border-style: solid;
@@ -794,45 +418,36 @@ svg {
   margin: 0.25rem;
   text-align: center;
 }
-
 .btn-submit {
   padding: 0.5rem;
   cursor: pointer;
   margin: 0.25rem;
 }
-
 .header-one {
   text-align: center;
   font-size: 3rem;
   font-weight: 800;
   margin: 0.25rem;
 }
-
 .header-two {
   text-align: center;
   font-size: 1.5rem;
   margin: 0.25rem;
   font-weight: 200;
 }
-
 @media (min-width: 640px) {
-
   .sm\:block {
     display: block;
   }
-
   .sm\:inline {
     display: inline;
   }
-
   .sm\:hidden {
     display: none;
   }
-
   .sm\:w-1\/4 {
     width: 25%;
   }
-
   .sm\:w-3\/4 {
     width: 75%;
   }
