@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { logout } from "../../actions/accounts";
-import { getCategories } from "../../actions/todo";
+import { getCategories, newCategory } from "../../actions/todo";
 import { navVisible } from "../../actions/styles";
 
 import { FILTER } from "../../actions/types";
@@ -17,8 +17,13 @@ export default function Nav() {
   const styles = useSelector((state) => state.styles);
   const textColor = styles.style === "dark" ? "text-white" : "text-black";
   const bgColor = styles.style === "dark" ? "bg-gray-900" : "bg-gray-200";
+  const inputStyles = styles.style === "dark" ? "text-white bg-gray-700" : "text-black bg-gray-100";
+  const style = styles.style === "dark"
+	      ? "text-white bg-gray-800"
+	      : "text-black bg-gray-100";
 
   const todoState = useSelector((state) => state.todo);
+  const [categoryName, setCategoryName] = useState("");
 
   const onSelect = (e) => {
     // First reset everything, then select selected and replace background
@@ -38,13 +43,19 @@ export default function Nav() {
       payload: e.target.id,
     });
   };
+  
+  const onSubmit = (e) => {
+    e.preventDefault();
+    dispatch(newCategory(categoryName));
+    setCategoryName("");
+  };
 
   return (
     //   {/* Nav buttons to filter items, position: left */}
     <nav
       className={`${
         styles.style === "dark" ? "bg-gray-700" : "bg-white"
-      } w-screen float-left h-screen ${styles.navVisible} sm:block sm:w-1/4`}
+      } overflow-y-auto w-screen float-left h-auto min-h-screen ${styles.navVisible} sm:block sm:w-1/4`}
     >
       <svg
         version="1.1"
@@ -91,7 +102,7 @@ export default function Nav() {
         </li>
       </ul>
       <ul className="flex flex-col items-center mt-3">
-        <li>
+        <li key="header">
           <h2 className={`${textColor} font-black text-2xl`}>Categories</h2>
         </li>
         {todoState.categories.length !== 0 ? (
@@ -106,10 +117,26 @@ export default function Nav() {
             </li>
           ))
         ) : (
-          <p className={textColor}>You haven't created any categories yet</p>
+          <p className={`${textColor} text-sm text-center`}>No categories yet</p>
         )}
+	<li className="mt-4" key="form"> 
+	  <form onSubmit={onSubmit} className="flex flex-col items-center">
+	    <input
+	      type="text"
+	      placeholder="Category Name"
+	      value={categoryName}
+	      onChange={(e) => setCategoryName(e.target.value)}
+	      className={`${style} text-sm p-1 shadow-inner w-3/4 placeholder-current border-solid border border-gray-600`}
+	    />
+	    <input 
+	      type="submit" 
+	      value="Create!"
+	      className={`${style} m-2 p-1 w-1/2 cursor-pointer shadow-inner border-solid border border-gray-600`}
+	  />
+	  </form>
+	</li>
       </ul>
-      <div className="w-full text-center bottom-0 absolute mb-5 sm:w-1/4">
+      <div style={{ margin : "1.25rem auto" }} className="w-full text-center bottom-0 sm:w-1/4">
         <a
           id="logout"
           className=" bg-red-300 p-2 rounded-lg cursor-pointer"

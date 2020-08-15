@@ -13,12 +13,12 @@ export default function Dashboard() {
   const dispatch = useDispatch();
   console.log(dispatch, navVisible);
   return (
-    <div className="w-screen">
+    <div className="w-screen overflow-x-hidden">
       {/* Navbar */}
       <Nav />
       {/* Items and form, position: right */}
       <div
-        className={`w-screen ${
+        className={`w-screen overflow-y-hidden ${
           styles.navVisible === "block" ? "hidden" : "block"
         } float-right min-h-screen h-auto sm:w-3/4 sm:block`.concat(
           styles.style === "dark" ? " bg-gray-800" : " bg-gray-100"

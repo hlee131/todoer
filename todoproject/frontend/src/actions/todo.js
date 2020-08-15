@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { GET_ITEMS, NEW_ITEM, ITEM_COMPLETE, GET_CATEGORIES } from "./types";
+import { GET_ITEMS, NEW_ITEM, ITEM_COMPLETE, GET_CATEGORIES, NEW_CATEGORY } from "./types";
 
 export const getItems = () => (dispatch, getState) => {
   axios
@@ -53,6 +53,20 @@ export const getCategories = () => (dispatch, getState) => {
       dispatch({
         type: GET_CATEGORIES,
         payload: res.data,
+      });
+    })
+    .catch((err) => console.log(err.response.data));
+};
+
+export const newCategory = (name) => (dispatch, getState) => {
+  axios
+    .post("/api/todo/categories/",
+	  JSON.stringify({name}),
+	  tokenConfig(getState))
+    .then((res) => {
+      dispatch({
+        type: NEW_CATEGORY,
+	payload: res.data,
       });
     })
     .catch((err) => console.log(err.response.data));

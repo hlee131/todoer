@@ -5,6 +5,7 @@ import {
   FILTER,
   GET_CATEGORIES,
   DELETE_COMPLETED,
+  NEW_CATEGORY
 } from "../actions/types";
 
 const initialState = {
@@ -21,6 +22,11 @@ export default function (state = initialState, action) {
         ...state,
         categories: action.payload,
       };
+    case NEW_CATEGORY:
+      return {
+      	...state,
+	categories: [...state.categories, action.payload],
+      }
     case GET_ITEMS:
       return {
         ...state,
