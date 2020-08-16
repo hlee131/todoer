@@ -552,6 +552,10 @@ svg {
   display: none;
 }
 
+.flex-row {
+  flex-direction: row;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -568,12 +572,12 @@ svg {
   justify-content: space-around;
 }
 
-.float-right {
-  float: right;
+.flex-none {
+  flex: none;
 }
 
-.float-left {
-  float: left;
+.float-right {
+  float: right;
 }
 
 .font-thin {
@@ -636,10 +640,6 @@ svg {
   margin-top: 1.25rem;
 }
 
-.mb-5 {
-  margin-bottom: 1.25rem;
-}
-
 .min-h-screen {
   min-height: 100vh;
 }
@@ -648,16 +648,12 @@ svg {
   overflow: hidden;
 }
 
-.overflow-y-auto {
-  overflow-y: auto;
-}
-
 .overflow-x-hidden {
   overflow-x: hidden;
 }
 
-.overflow-y-hidden {
-  overflow-y: hidden;
+.overflow-y-scroll {
+  overflow-y: scroll;
 }
 
 .p-1 {
@@ -694,10 +690,6 @@ svg {
 
 .fixed {
   position: fixed;
-}
-
-.absolute {
-  position: absolute;
 }
 
 .relative {

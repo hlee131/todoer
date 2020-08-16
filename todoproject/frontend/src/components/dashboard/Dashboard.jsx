@@ -11,16 +11,16 @@ import { navVisible } from "../../actions/styles";
 export default function Dashboard() {
   const styles = useSelector((state) => state.styles);
   const dispatch = useDispatch();
-  console.log(dispatch, navVisible);
+  
   return (
-    <div className="w-screen overflow-x-hidden">
+    <div className="w-screen h-screen overflow-x-hidden flex flex-row">
       {/* Navbar */}
       <Nav />
       {/* Items and form, position: right */}
       <div
-        className={`w-screen overflow-y-hidden ${
+        className={`w-screen flex-none overflow-y-scroll ${
           styles.navVisible === "block" ? "hidden" : "block"
-        } float-right min-h-screen h-auto sm:w-3/4 sm:block`.concat(
+        } min-h-screen h-auto sm:w-3/4 sm:block`.concat(
           styles.style === "dark" ? " bg-gray-800" : " bg-gray-100"
         )}
       >

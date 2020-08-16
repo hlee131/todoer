@@ -55,7 +55,7 @@ export default function Nav() {
     <nav
       className={`${
         styles.style === "dark" ? "bg-gray-700" : "bg-white"
-      } overflow-y-auto w-screen float-left h-auto min-h-screen ${styles.navVisible} sm:block sm:w-1/4`}
+      } overflow-y-scroll w-screen flex-none h-auto min-h-screen ${styles.navVisible} sm:block sm:w-1/4`}
     >
       <svg
         version="1.1"
@@ -126,12 +126,12 @@ export default function Nav() {
 	      placeholder="Category Name"
 	      value={categoryName}
 	      onChange={(e) => setCategoryName(e.target.value)}
-	      className={`${style} text-sm p-1 shadow-inner w-3/4 placeholder-current border-solid border border-gray-600`}
+	      className={`${style} text-sm p-1 shadow-inner w-full placeholder-current border-solid border border-gray-600`}
 	    />
 	    <input 
 	      type="submit" 
 	      value="Create!"
-	      className={`${style} m-2 p-1 w-1/2 cursor-pointer shadow-inner border-solid border border-gray-600`}
+	      className={`${style} m-2 p-1 w-3/4 cursor-pointer shadow-inner border-solid border border-gray-600`}
 	  />
 	  </form>
 	</li>
