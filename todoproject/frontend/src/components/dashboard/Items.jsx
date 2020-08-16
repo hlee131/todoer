@@ -27,7 +27,7 @@ export default function Items() {
             item.completed === (todo.filter === "complete" ? true : false)
         );
       default:
-        return todo.items.filter((item) => item.category === todo.filter);
+        return todo.items.filter((item) => (item.category === todo.filter));
     }
   };
 

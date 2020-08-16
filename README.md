@@ -11,7 +11,7 @@ Todoer is a todo app that I built to learn Django REST Framework and React.
 2. Edit Account Info (DONE)
 3. Light Dark Mode (DONE)
 4. OAuth
-5. Categories (WIP)
+5. Categories (DONE)
 6. Slack / Messanger bot
 7. Use @apply with Tailwind for cleaner classes (DONE)
 8. Incomplete items

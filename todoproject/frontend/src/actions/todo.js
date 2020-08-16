@@ -14,13 +14,17 @@ export const getItems = () => (dispatch, getState) => {
     .catch((err) => console.log(err.response.data));
 };
 
-export const newItem = (item) => (dispatch, getState) => {
-  const body = JSON.stringify({
+export const newItem = (item, category) => (dispatch, getState) => {
+  const body = {
     item,
-  });
+  };
+
+  if (category !== "No Category") {
+    body.category = category;
+  };
 
   axios
-    .post("/api/todo/todos/", body, tokenConfig(getState))
+    .post("/api/todo/todos/", JSON.stringify(body), tokenConfig(getState))
     .then((res) => {
       dispatch({
         type: NEW_ITEM,
