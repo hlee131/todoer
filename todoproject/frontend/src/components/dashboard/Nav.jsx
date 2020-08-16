@@ -126,7 +126,7 @@ export default function Nav() {
 	      placeholder="Category Name"
 	      value={categoryName}
 	      onChange={(e) => setCategoryName(e.target.value)}
-	      className={`${style} text-sm p-1 shadow-inner w-full placeholder-current border-solid border border-gray-600`}
+	      className={`${style} text-sm p-1 shadow-inner w-3/4 placeholder-current border-solid border border-gray-600`}
 	    />
 	    <input 
 	      type="submit" 

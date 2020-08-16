@@ -40,7 +40,13 @@ export default function Form() {
         value={item}
         onChange={(e) => setItem(e.target.value)}
       ></input>
-      <select defaultValue="No Category" name="category" id="category" onChange={onChange}>
+      <select 
+	defaultValue="No Category" 
+	name="category" 
+	id="category" 
+	onChange={onChange}
+	className={`${style} mx-1 shadow-inner border-solid border border-gray-600`}  
+	>
 	  <option value="No Category">No Category</option>
 	  { categories.map((item) => (
 	    <option key={item.id} id={item.id} value={item.name}>{item.name}</option>))

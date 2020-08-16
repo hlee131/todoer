@@ -18,9 +18,9 @@ export default function Dashboard() {
       <Nav />
       {/* Items and form, position: right */}
       <div
-        className={`w-screen flex-none overflow-y-scroll ${
+        className={`w-screen flex-none overflow-y-auto ${
           styles.navVisible === "block" ? "hidden" : "block"
-        } min-h-screen h-auto sm:w-3/4 sm:block`.concat(
+        } h-screen sm:w-3/4 sm:block`.concat(
           styles.style === "dark" ? " bg-gray-800" : " bg-gray-100"
         )}
       >
