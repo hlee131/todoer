@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { logout } from "../../actions/accounts";
 import { getCategories, newCategory } from "../../actions/todo";
-import { navVisible } from "../../actions/styles";
 
-import { FILTER } from "../../actions/types";
+import { FILTER, NAV_VISIBLE } from "../../actions/types";
 import todo from "../../reducers/todo";
 
 export default function Nav() {
@@ -42,6 +41,10 @@ export default function Nav() {
       type: FILTER,
       payload: e.target.id,
     });
+
+    dispatch({
+      type: NAV_VISIBLE,
+    })
   };
   
   const onSubmit = (e) => {
@@ -68,7 +71,7 @@ export default function Nav() {
         viewBox="0 0 306 306"
         style={{ top: "0.75rem", left: "0.75rem" }}
         className={`fill-current ${textColor} relative cursor-pointer sm:hidden`}
-        onClick={() => dispatch(navVisible())}
+        onClick={() => dispatch({type: NAV_VISIBLE,})}
       >
         <g id="chevron-left">
           <polygon points="247.35,35.7 211.65,0 58.65,153 211.65,306 247.35,270.3 130.05,153   " />

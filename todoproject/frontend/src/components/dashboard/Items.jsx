@@ -31,16 +31,16 @@ export default function Items() {
     }
   };
 
+  let textColor = styles.style === "dark" ? "text-white" : "text-black";
+
   return (
     //   {/* Items */}
     <ul className="w-full">
-      {returnItems().map((item) => (
+      {returnItems().length !== 0 ? returnItems().map((item) => (
         <li
           key={item.id}
           // TODO: Add categories to fade
-          className={`${todo.filter === "incomplete" ? "fade" : ""} ${
-            styles.style === "dark" ? "text-white" : "text-black"
-          }`}
+          className={`${todo.filter === "incomplete" ? "fade" : ""} ${textColor}`}
         >
           <input
             id={item.id}
@@ -51,7 +51,7 @@ export default function Items() {
           ></input>
           {item.item}
         </li>
-      ))}
+      )) : <p className={`${textColor} text-xs text-center`}>You currently don't have any items</p>}
     </ul>
   );
 }

@@ -6,9 +6,3 @@ export const change = () => (dispatch) => {
     type: SWITCH,
   });
 };
-
-export const navVisible = () => (dispatch) => {
-  dispatch({
-    type: NAV_VISIBLE,
-  });
-};

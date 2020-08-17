@@ -30,12 +30,12 @@ export default function (state = initialState, action) {
     case GET_ITEMS:
       return {
         ...state,
-        items: action.payload,
+        items: action.payload.reverse(),
       };
     case NEW_ITEM:
       return {
         ...state,
-        items: [...state.items, action.payload],
+        items: [action.payload, ...state.items], 
       };
     case FILTER:
       return {

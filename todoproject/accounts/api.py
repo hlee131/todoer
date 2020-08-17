@@ -76,7 +76,7 @@ class ResetTokenAPI(generics.CreateAPIView):
 def _send_email(token, email):
     sender = 'scriptingtesting197@gmail.com'
     receiver = email
-    file_path = str(Path(os.getcwd()).parent) + r'\SECRETS.txt'
+    file_path = str(Path(os.getcwd()).parent) + r'/SECRETS.txt'
     with open(file_path, 'r') as f:
         password = f.readlines()[0]
 
@@ -92,16 +92,39 @@ def _send_email(token, email):
     Thanks, Todoer
     """
     html = f"""
-    <html>
-        <body>
-            <h1>Todoer</h1>
-            <p>
-            Someone requested a password reset on Todoer. If you did not request for it, you can safely ignore this email.
-            Otherwise, click <a href="http://localhost:8000/api/auth/reset-password?token={token}&email={email}">here</a> to reset your password
-            Thanks, Todoer
-            </p>
-        </body>
-    </html>
+     <html>
+       <head>
+         <style>
+           body {
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             width: 75%;
+             margin: 0 auto;}
+           .btn {
+             background-color: #edf2f7;
+             width: 10rem;
+             height: 2.5rem;
+             display: flex;
+             align-items: center;
+             justify-content: center;}
+           .btn a {text-decoration: none;}
+         </style>
+       </head>
+       <body>
+         <h1>TODOER</h1>
+         <p>
+           Someone requested a password reset on Todoer. If you did not request for it, you can safely ignore this email.
+           Otherwise, click <a href="http://localhost:8000/api/auth/reset-password?token={token}&email={email}">here</a> to reset your password
+         </p>
+         <div class="btn">
+           <a href="http://localhost:8000/api/auth/reset-password?token={token}&email={email}">Reset Password</a>
+         </div>
+         <p>
+           Thanks, Todoer
+         </p>
+       </body>
+     </html>
     """
 
     message.attach(MIMEText(text, "plain"))
