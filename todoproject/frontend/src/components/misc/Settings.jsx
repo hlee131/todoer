@@ -5,10 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   update,
   deleteAcc,
-  logout,
   clearCompleted,
 } from "../../actions/accounts";
-import { change } from "../../actions/styles";
+import { SWITCH } from "../../actions/types";
 
 export default function Settings() {
   const [visible, setVisible] = useState("password");
@@ -25,7 +24,7 @@ export default function Settings() {
   const onClick = () => {
     let ran = false;
     if (style !== document.getElementById("style").selectedOptions[0].value) {
-      dispatch(change());
+      dispatch({type: SWITCH});
       localStorage.setItem(
         "style",
         localStorage.getItem("style") === "dark" ? "light" : "dark"

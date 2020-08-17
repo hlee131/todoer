@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { logout } from "../../actions/accounts";
 import { getCategories, newCategory } from "../../actions/todo";
 
-import { FILTER, NAV_VISIBLE } from "../../actions/types";
+import { FILTER, NAV_VISIBLE, LOGOUT } from "../../actions/types";
 import todo from "../../reducers/todo";
 
 export default function Nav() {
@@ -143,7 +142,7 @@ export default function Nav() {
         <a
           id="logout"
           className=" bg-red-300 p-2 rounded-lg cursor-pointer"
-          onClick={() => dispatch(logout())}
+          onClick={() => dispatch({type: LOGOUT})}
         >
           Logout
         </a>

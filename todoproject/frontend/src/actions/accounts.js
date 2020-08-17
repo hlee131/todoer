@@ -68,12 +68,6 @@ export const register = (username, password, email) => (dispatch) => {
     });
 };
 
-export var logout = () => (dispatch) => {
-  dispatch({
-    type: LOGOUT,
-  });
-};
-
 export const update = (username, password, email, ran) => (
   dispatch,
   getState
