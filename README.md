@@ -7,14 +7,15 @@ Todoer is a todo app that I built to learn Django REST Framework and React.
 <!-- TODO: IDEAS -->
 <!-- Open preview with ctrl+k v or ctrl+shift+v -->
 
+~~Ideas scraped~~
 1. Password visible (DONE)
 2. Edit Account Info (DONE)
 3. Light Dark Mode (DONE)
-4. OAuth
+~~4. OAuth~~
 5. Categories (DONE)
-6. Slack / Messanger bot
+~~6. Slack / Messanger bot~~
 7. Use @apply with Tailwind for cleaner classes (DONE)
-8. Incomplete items
+8. Incomplete items (DONE)
 9. Error boxes / handling
 10. Migrate tokens from localStorage into cookies (bit.ly/3eZ2MAh)
 11. Forgot Password (DONE)
@@ -23,7 +24,8 @@ Todoer is a todo app that I built to learn Django REST Framework and React.
     - newest items first instead of vice versa (DONE)
     - delete items (DONE)
     - add css to password reset (DONE)
-13. Add Landing page for product.
+~~13. Add Landing page for product.~~
+14. Modal confirmation for important tasks such as clearing todos or deleting account (DONE) 
 
 # Frameworks Used
 

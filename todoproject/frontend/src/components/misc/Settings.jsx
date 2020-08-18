@@ -37,16 +37,33 @@ export default function Settings() {
     setPassword("");
   };
 
-  const deleteAccount = () => {
-    // TODO: Add confirmation
-    dispatch(deleteAcc());
+  const startModal = (action) => {
+    let modal = document.getElementById("warn-modal");
+    // Edit confirmation text
+    document.getElementById("action").innerText = action;
+    // Make visible
+    modal.classList.remove("hidden");
+    modal.classList.add("block");
+    // Assign function
+    let func = action === "delete your completed todo items" ? clearCompleted : deleteAcc;
+    // Clear previous event listeners
+    let continueBtn = document.getElementById("continue");
+    continueBtn.replaceWith(continueBtn.cloneNode(true));
+    // Update variable for new button
+    continueBtn = document.getElementById("continue");
+    continueBtn.addEventListener("click", () => {
+      cancel();
+      dispatch(func());
+    });
   };
 
-  const clearTodos = () => {
-    dispatch(clearCompleted());
+  const cancel = () => {
+    document.getElementById("warn-modal").classList.remove("block");
+    document.getElementById("warn-modal").classList.add("hidden");
   };
 
   return (
+    <div className="relative">
     <div
       className={"h-screen w-screen overflow-hidden".concat(
         style === "dark" ? " bg-gray-800" : " bg-gray-100"
@@ -121,7 +138,7 @@ export default function Settings() {
           <button
             type="button"
             className="bg-red-400 p-1 m-2 rounded-lg cursor-pointer"
-            onClick={clearTodos}
+            onClick={() => startModal("delete your completed todo items")}
           >
             Clear Todos
           </button>
@@ -157,11 +174,22 @@ export default function Settings() {
         <button
           type="button"
           className="bg-red-400 p-1 m-1 rounded-lg cursor-pointer"
-          onClick={deleteAccount}
+          onClick={() => startModal("delete your account")}
         >
           Delete Account
         </button>
       </span>
+    </div>
+    <div id="warn-modal" className="hidden flex items-center justify-center w-screen h-screen absolute inset-0 bg-opacity-75 bg-gray-800">
+      <div className="bg-gray-400 p-2 rounded-lg flex items-center justify-center flex-col">
+        <h1 className="text-center text-3xl font-extrabold m-1">Are you sure you want to:</h1>
+        <h2 className="header-two" id="action">Test Text</h2>
+          <div className="flex flex-row space-around">
+            <button onClick={cancel} className="bg-red-400 p-2 m-1 rounded-lg cursor-pointer">No</button> 
+            <button id="continue" className="bg-green-400 p-2 m-1 rounded-lg cursor-pointer">Yes</button>
+          </div>
+      </div>
+    </div>
     </div>
   );
 }

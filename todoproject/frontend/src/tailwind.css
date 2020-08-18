@@ -466,6 +466,12 @@ svg {
   background-color: rgba(237, 242, 247, var(--bg-opacity));
 }
 
+.bg-gray-400 {
+  --bg-opacity: 1;
+  background-color: #cbd5e0;
+  background-color: rgba(203, 213, 224, var(--bg-opacity));
+}
+
 .bg-gray-700 {
   --bg-opacity: 1;
   background-color: #4a5568;
@@ -506,6 +512,10 @@ svg {
   --bg-opacity: 1;
   background-color: #81e6d9;
   background-color: rgba(129, 230, 217, var(--bg-opacity));
+}
+
+.bg-opacity-75 {
+  --bg-opacity: 0.75;
 }
 
 .border-gray-200 {
@@ -584,6 +594,10 @@ svg {
   font-weight: 200;
 }
 
+.font-extrabold {
+  font-weight: 800;
+}
+
 .font-black {
   font-weight: 900;
 }
@@ -606,6 +620,10 @@ svg {
 
 .text-2xl {
   font-size: 1.5rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
 }
 
 .m-1 {
@@ -705,8 +723,19 @@ svg {
   position: fixed;
 }
 
+.absolute {
+  position: absolute;
+}
+
 .relative {
   position: relative;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .bottom-0 {

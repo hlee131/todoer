@@ -1,7 +1,7 @@
 import {
   GET_ITEMS,
   NEW_ITEM,
-  ITEM_COMPLETE,
+  ITEM_CHECK,
   FILTER,
   GET_CATEGORIES,
   DELETE_COMPLETED,
@@ -42,13 +42,13 @@ export default function (state = initialState, action) {
         ...state,
         filter: action.payload,
       };
-    case ITEM_COMPLETE:
+    case ITEM_CHECK:
       let object = state.items.filter(
         (item) => item.id === action.payload.id
       )[0];
       let index = state.items.indexOf(object);
       let newItems = state.items;
-      newItems[index].completed = true;
+      newItems[index].completed = action.payload.completed;
       return {
         ...state,
         items: newItems,

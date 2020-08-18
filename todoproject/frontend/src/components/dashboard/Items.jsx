@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getItems, completeItem } from "../../actions/todo";
+import { getItems, itemCheck } from "../../actions/todo";
 
 export default function Items() {
   const todo = useSelector((state) => state.todo);
@@ -12,8 +12,11 @@ export default function Items() {
   }, []);
 
   const onCheck = (e) => {
-    e.target.parentNode.style.animationPlayState = "running";
-    dispatch(completeItem(e.target.id));
+    if ((e.target.checked && todo.filter === "incomplete") || (!e.target.checked && todo.filter === "complete")) {
+      e.target.parentNode.style.animationPlayState = "running";
+    };
+    let completed = e.target.checked ? true : false;
+    dispatch(itemCheck(e.target.id, completed));
   };
 
   const returnItems = () => {
@@ -40,7 +43,7 @@ export default function Items() {
         <li
           key={item.id}
           // TODO: Add categories to fade
-          className={`${todo.filter === "incomplete" ? "fade" : ""} ${textColor}`}
+          className={`fade ${textColor}`}
         >
           <input
             id={item.id}
