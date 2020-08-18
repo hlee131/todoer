@@ -35,8 +35,8 @@ Backend: Django REST Framework
 
 # Bugs
 
-~~1. Items fading on "All Items"~~  
-~~2. Items required reloading to be shown as completed~~
+1. Items fading on "All Items" (FIXED)
+2. Items required reloading to be shown as completed (FIXED)
 
 ## Misc Notes
 
