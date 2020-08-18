@@ -16,7 +16,7 @@ Todoer is a todo app that I built to learn Django REST Framework and React.
 ~~6. Slack / Messanger bot~~
 7. Use @apply with Tailwind for cleaner classes (DONE)
 8. Incomplete items (DONE)
-9. Error boxes / handling
+9. Error boxes / handling (WIP)
 10. Remove tokens from localStorage and soley into browser memory for security (React/Redux State) (DONE) 
 11. Forgot Password (DONE)
 12. Better UX (DONE)

@@ -1,6 +1,13 @@
 import axios from "axios";
 
-import { GET_ITEMS, NEW_ITEM, ITEM_CHECK, GET_CATEGORIES, NEW_CATEGORY } from "./types";
+import { 
+  GET_ITEMS,
+  NEW_ITEM, 
+  ITEM_CHECK, 
+  GET_CATEGORIES, 
+  NEW_CATEGORY,
+  MESSAGE,  
+} from "./types";
 
 export const getItems = () => (dispatch, getState) => {
   axios
@@ -11,7 +18,7 @@ export const getItems = () => (dispatch, getState) => {
         payload: res.data,
       });
     })
-    .catch((err) => console.log(err.response.data));
+    .catch((err) => dispatch(dispatchErrors(err.response.data, "error")));
 };
 
 export const newItem = (item, category) => (dispatch, getState) => {
@@ -31,7 +38,7 @@ export const newItem = (item, category) => (dispatch, getState) => {
         payload: res.data,
       });
     })
-    .catch((err) => console.log(err.response.data));
+    .catch((err) => dispatch(dispatchErrors(err.response.data, "error")));
 };
 
 export const itemCheck = (id, completed) => (dispatch, getState) => {
@@ -47,7 +54,7 @@ export const itemCheck = (id, completed) => (dispatch, getState) => {
         payload: res.data,
       });
     })
-    .catch((err) => console.log(err.response.data));
+    .catch((err) => dispatch(dispatchErrors(err.response.data, "error")));
 };
 
 export const getCategories = () => (dispatch, getState) => {
@@ -59,7 +66,7 @@ export const getCategories = () => (dispatch, getState) => {
         payload: res.data,
       });
     })
-    .catch((err) => console.log(err.response.data));
+    .catch((err) => dispatch(dispatchErrors(err.response.data, "error")));
 };
 
 export const newCategory = (name) => (dispatch, getState) => {
@@ -73,7 +80,7 @@ export const newCategory = (name) => (dispatch, getState) => {
 	payload: res.data,
       });
     })
-    .catch((err) => console.log(err.response.data));
+    .catch((err) => dispatch(dispatchErrors(err.response.data, "error")));
 };
 
 export const tokenConfig = (getState) => {
@@ -94,3 +101,15 @@ export const tokenConfig = (getState) => {
 
   return config;
 };
+
+export const dispatchErrors = (data, stat) => {
+  let message = data[Object.keys(data)[0]][0];
+  return {
+    type: MESSAGE,
+    payload: {
+      message,
+      stat,
+    }
+  }
+};
+

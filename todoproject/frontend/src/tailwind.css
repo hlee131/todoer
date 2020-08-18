@@ -472,6 +472,12 @@ svg {
   background-color: rgba(203, 213, 224, var(--bg-opacity));
 }
 
+.bg-gray-500 {
+  --bg-opacity: 1;
+  background-color: #a0aec0;
+  background-color: rgba(160, 174, 192, var(--bg-opacity));
+}
+
 .bg-gray-700 {
   --bg-opacity: 1;
   background-color: #4a5568;
@@ -514,6 +520,16 @@ svg {
   background-color: rgba(129, 230, 217, var(--bg-opacity));
 }
 
+.bg-purple-300 {
+  --bg-opacity: 1;
+  background-color: #d6bcfa;
+  background-color: rgba(214, 188, 250, var(--bg-opacity));
+}
+
+.bg-opacity-0 {
+  --bg-opacity: 0;
+}
+
 .bg-opacity-75 {
   --bg-opacity: 0.75;
 }
@@ -530,6 +546,18 @@ svg {
   border-color: rgba(113, 128, 150, var(--border-opacity));
 }
 
+.border-red-500 {
+  --border-opacity: 1;
+  border-color: #f56565;
+  border-color: rgba(245, 101, 101, var(--border-opacity));
+}
+
+.border-teal-500 {
+  --border-opacity: 1;
+  border-color: #38b2ac;
+  border-color: rgba(56, 178, 172, var(--border-opacity));
+}
+
 .rounded-lg {
   border-radius: 0.5rem;
 }
@@ -540,6 +568,10 @@ svg {
 
 .border {
   border-width: 1px;
+}
+
+.border-r-4 {
+  border-right-width: 4px;
 }
 
 .cursor-pointer {
@@ -695,6 +727,10 @@ svg {
   padding: 0.5rem;
 }
 
+.p-3 {
+  padding: 0.75rem;
+}
+
 .p-5 {
   padding: 1.25rem;
 }
@@ -776,6 +812,10 @@ svg {
 
 .w-20 {
   width: 5rem;
+}
+
+.w-64 {
+  width: 16rem;
 }
 
 .w-1\/2 {

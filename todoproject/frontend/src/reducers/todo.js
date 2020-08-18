@@ -5,7 +5,8 @@ import {
   FILTER,
   GET_CATEGORIES,
   DELETE_COMPLETED,
-  NEW_CATEGORY
+  NEW_CATEGORY,
+  MESSAGE,
 } from "../actions/types";
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
   items: [],
   filter: "all",
   categories: [],
+  messages: [],
 };
 
 export default function (state = initialState, action) {
@@ -57,6 +59,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         items: state.items.filter((item) => item.completed === false),
+      };
+    case MESSAGE:
+      return {
+        ...state,
+        messages: [...state.messages, action.payload],
       };
     default:
       return state;

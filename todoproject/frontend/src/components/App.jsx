@@ -11,6 +11,7 @@ import PrivateRoute from "./misc/PrivateRoute.jsx";
 import Settings from "./misc/Settings.jsx";
 import Dashboard from "./dashboard/Dashboard.jsx";
 import RequestReset from "./accounts/RequestReset.jsx";
+import Alerts from "./misc/Alerts.jsx";
 
 export default function App(props) {
   localStorage.setItem(
@@ -32,6 +33,7 @@ export default function App(props) {
               <Route exact path="/request-reset" component={RequestReset} />
             </Switch>
           </div>
+          <Alerts />
         </Fragment>
       </HashRouter>
     </Provider>

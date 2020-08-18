@@ -9,7 +9,7 @@ import {
   DELETE_COMPLETED,
 } from "./types";
 
-import { tokenConfig } from "./todo";
+import { tokenConfig, dispatchErrors } from "./todo";
 
 export const login = (username, password) => (dispatch) => {
   const config = {
@@ -32,10 +32,7 @@ export const login = (username, password) => (dispatch) => {
       });
     })
     .catch((err) => {
-      console.log(err.response.data);
-      dispatch({
-        type: LOGIN_FAIL,
-      });
+      dispatch(dispatchErrors(err.response.data, "error"));
     });
 };
 
@@ -61,12 +58,9 @@ export const register = (username, password, email) => (dispatch) => {
       });
     })
     .catch((err) => {
-      console.log(err.response.data);
-      dispatch({
-        type: REGISTER_FAIL,
-      });
+      dispatch(dispatchErrors(err.response.data, "error"));
     });
-};
+  };
 
 export const update = (username, password, email, ran) => (
   dispatch,
@@ -95,8 +89,8 @@ export const update = (username, password, email, ran) => (
     axios
       .patch("/api/auth/user", body, tokenConfig(getState))
       .then((res) => console.log("user updated"))
-      .catch((err) => console.log(err.response.data));
-  }
+      .catch((err) => dispatch(dispatchErrors(err.response.data, "error")));
+  };
 };
 
 export const deleteAcc = () => (dispatch, getState) => {
@@ -107,7 +101,7 @@ export const deleteAcc = () => (dispatch, getState) => {
         type: LOGOUT,
       })
     )
-    .catch((err) => console.log(err.response.data));
+    .catch((err) => console.log(err.response.data, "error"));
 };
 
 export const clearCompleted = () => (dispatch, getState) => {
@@ -119,5 +113,5 @@ export const clearCompleted = () => (dispatch, getState) => {
       });
       alert("Completed todos deleted");
     })
-    .catch((err) => console.log(err.response.data));
+    .catch((err) => console.log(err.response.data, "error"));
 };
