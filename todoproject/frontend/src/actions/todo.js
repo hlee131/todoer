@@ -78,7 +78,7 @@ export const newCategory = (name) => (dispatch, getState) => {
 
 export const tokenConfig = (getState) => {
   // Get token from state
-  const token = localStorage.getItem("token");
+  const token = getState().auth.token;
 
   // Headers
   const config = {

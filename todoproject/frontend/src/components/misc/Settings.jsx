@@ -14,6 +14,7 @@ export default function Settings() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [actionText, setActionText] = useState("");
   const style = useSelector((state) => state.styles.style);
   const dispatch = useDispatch();
 
@@ -40,7 +41,7 @@ export default function Settings() {
   const startModal = (action) => {
     let modal = document.getElementById("warn-modal");
     // Edit confirmation text
-    document.getElementById("action").innerText = action;
+    setActionText(action);
     // Make visible
     modal.classList.remove("hidden");
     modal.classList.add("block");
@@ -183,7 +184,7 @@ export default function Settings() {
     <div id="warn-modal" className="hidden flex items-center justify-center w-screen h-screen absolute inset-0 bg-opacity-75 bg-gray-800">
       <div className="bg-gray-400 p-2 rounded-lg flex items-center justify-center flex-col">
         <h1 className="text-center text-3xl font-extrabold m-1">Are you sure you want to:</h1>
-        <h2 className="header-two" id="action">Test Text</h2>
+        <h2 className="header-two" id="action">{actionText}</h2>
           <div className="flex flex-row space-around">
             <button onClick={cancel} className="bg-red-400 p-2 m-1 rounded-lg cursor-pointer">No</button> 
             <button id="continue" className="bg-green-400 p-2 m-1 rounded-lg cursor-pointer">Yes</button>

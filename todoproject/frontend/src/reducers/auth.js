@@ -7,20 +7,18 @@ import {
 } from "../actions/types";
 
 const initialState = {
-  isAuthenticated: localStorage.getItem("token") === null ? false : true,
+  isAuthenticated: false,
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
     case LOGIN_SUCCESS:
-      localStorage.setItem("token", action.payload.token);
       return {
         ...state,
         ...action.payload,
         isAuthenticated: true,
       };
     case LOGOUT:
-      localStorage.removeItem("token");
       return {
         ...state,
         isAuthenticated: false,
