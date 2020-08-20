@@ -646,12 +646,12 @@ svg {
   height: 100vh;
 }
 
-.text-xs {
-  font-size: 0.75rem;
-}
-
 .text-sm {
   font-size: 0.875rem;
+}
+
+.text-base {
+  font-size: 1rem;
 }
 
 .text-xl {
@@ -660,10 +660,6 @@ svg {
 
 .text-2xl {
   font-size: 1.5rem;
-}
-
-.text-3xl {
-  font-size: 1.875rem;
 }
 
 .m-1 {
@@ -798,6 +794,10 @@ svg {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
 .shadow-inner {
   box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 }
@@ -902,7 +902,7 @@ svg {
 .header-one { text-align: center; font-size: 3rem; font-weight: 800; margin: 0.25rem;
 }
 
-.header-two { text-align: center; font-size: 1.5rem; margin: 0.25rem; font-weight: 200;
+.header-two { text-align: center; font-size: 1.5rem; margin: 0.25rem;
 }
 
 .self-delete {
@@ -949,6 +949,14 @@ svg {
 
   .sm\:hidden {
     display: none;
+  }
+
+  .sm\:text-lg {
+    font-size: 1.125rem;
+  }
+
+  .sm\:text-3xl {
+    font-size: 1.875rem;
   }
 
   .sm\:w-1\/4 {

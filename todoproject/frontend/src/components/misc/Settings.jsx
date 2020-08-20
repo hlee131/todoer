@@ -93,7 +93,7 @@ export default function Settings() {
       </Link>
       {/* </div> */}
       <section className="w-screen">
-        <h1 className={`header-one mt-4 ${textColor}`}>Account Settings</h1>
+        <h1 className={`header-two font-extrabold mt-4 ${textColor}`}>Account Settings</h1>
         <form className="flex flex-col w-screen justify-center items-center">
           <label htmlFor="username" className={`m-1 ${textColor}`}>
             Username
@@ -143,13 +143,13 @@ export default function Settings() {
           >
             Clear Todos
           </button>
-          <p className={`${textColor}`}>
+          <p className={`${textColor} text-center m-1`}>
             WARNING: This button will delete any todos you have completed
           </p>
         </form>
       </section>
       <section className="w-screen">
-        <h1 className={`header-one ${textColor}`}>Display Setting</h1>
+        <h1 className={`header-two font-extrabold ${textColor}`}>Display Setting</h1>
         <form className="flex flex-col items-center w-screen">
           <label htmlFor="style" className={`m-1 ${textColor}`}>
             Style Settings
@@ -182,9 +182,9 @@ export default function Settings() {
       </span>
     </div>
     <div id="warn-modal" className="hidden flex items-center justify-center w-screen h-screen absolute inset-0 bg-opacity-75 bg-gray-800">
-      <div className="bg-gray-400 p-2 rounded-lg flex items-center justify-center flex-col">
-        <h1 className="text-center text-3xl font-extrabold m-1">Are you sure you want to:</h1>
-        <h2 className="header-two" id="action">{actionText}</h2>
+      <div className="shadow-2xl bg-gray-400 p-2 rounded-lg flex items-center justify-center flex-col">
+        <h1 className="text-center text-xl sm:text-3xl font-extrabold m-1">Are you sure you want to:</h1>
+        <h2 className="text-base sm:text-lg" id="action">{actionText}</h2>
           <div className="flex flex-row space-around">
             <button onClick={cancel} className="bg-red-400 p-2 m-1 rounded-lg cursor-pointer">No</button> 
             <button id="continue" className="bg-green-400 p-2 m-1 rounded-lg cursor-pointer">Yes</button>

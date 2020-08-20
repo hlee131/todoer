@@ -38,7 +38,7 @@
 
 .header-one { @apply text-center text-5xl font-extrabold m-1;}
 
-.header-two { @apply text-center text-2xl m-1 font-thin;}
+.header-two { @apply text-center text-2xl m-1;}
 
 .self-delete {
   animation-name: self-delete;

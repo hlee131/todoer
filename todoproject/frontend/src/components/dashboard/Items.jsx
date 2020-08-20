@@ -54,7 +54,7 @@ export default function Items() {
           ></input>
           {item.item}
         </li>
-      )) : <p className={`${textColor} text-xs text-center`}>You currently don't have any items</p>}
+      )) : <p className={`${textColor} m-3 text-center`}>You currently don't have any items</p>}
     </ul>
   );
 }
