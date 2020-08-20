@@ -30,18 +30,35 @@
   animation-fill-mode: forwards;
 }
 
-.input {
-  @apply w-3/4 border-solid border border-gray-600 m-1 text-center;
+.height-inherit { height: inherit;}
+
+.input { @apply w-3/4 border-solid border border-gray-600 m-1 text-center;}
+
+.btn-submit { @apply p-2 cursor-pointer m-1;}
+
+.header-one { @apply text-center text-5xl font-extrabold m-1;}
+
+.header-two { @apply text-center text-2xl m-1 font-thin;}
+
+.self-delete {
+  animation-name: self-delete;
+  animation-duration: 15s;
+  animation-fill-mode: forwards;
 }
 
-.btn-submit {
-  @apply p-2 cursor-pointer m-1;
-}
+@keyframes self-delete {
+  /* Start display none and height 0 300 ms prior */
+  98% {
+    opacity: 1;
+    height: auto;
+    @apply m-2 p-3;
+  }
 
-.header-one {
-  @apply text-center text-5xl font-extrabold m-1;
-}
-
-.header-two {
-  @apply text-center text-2xl m-1 font-thin;
+  100% {
+    opacity: 0;
+    height: 0;
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
 }

@@ -26,6 +26,12 @@ Todoer is a todo app that I built to learn Django REST Framework and React.
     - add css to password reset (DONE)
 ~~13. Add Landing page for product.~~
 14. Modal confirmation for important tasks such as clearing todos or deleting account (DONE) 
+15. Improve design:
+  - modals
+  - No items text 
+  - error boxes on mobile
+  - error boxes use icon instead of "X"
+  - reimplement dissappear in ten with JS instead of CSS, use fade class.
 
 # Frameworks Used
 

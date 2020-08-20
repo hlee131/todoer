@@ -5,17 +5,17 @@ export default function Alerts() {
   const messages = useSelector((state) => state.todo.messages);
 
   return (
-    <div className="inset-0 h-screen w-screen bg-opacity-0">
+    <div className="absolute top-0 bg-opacity-0 right-0 top-0 m-2">
       <ul id="messages">
         {
           messages.map((msg) => (
             <li 
               key={messages.indexOf(msg)} 
-              className={`w-64 bg-purple-300 m-2 ${msg.stat === "success" ? "border-teal-500" : "border-red-500" } bg-gray-500 border-t-4 p-3 shadow-md fade-10`}
+              className={`self-delete w-64 bg-purple-300 m-2 ${msg.stat === "success" ? "border-teal-500" : "border-red-500" } bg-gray-500 border-t-4 p-3 shadow-md`}
             >
-              <div className="flex flex-row items-center justify-center space-around">  
-                <p>{msg.message}</p>
-                <p className="p-1 cursor-pointer" onClick={(e) => e.target.parentNode.parentNode.remove()}> X </p>
+              <div className="flex flex-row items-center justify-evenly height-inherit">  
+                <p className="height-inherit">{msg.message}</p>
+                <p className="p-1 cursor-pointer height-inherit text-xl" onClick={(e) => e.target.parentNode.parentNode.remove()}> X </p>
               </div>
               
             </li>

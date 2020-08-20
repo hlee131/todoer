@@ -56,6 +56,7 @@ export const register = (username, password, email) => (dispatch) => {
         type: REGISTER_SUCCESS,
         payload: res.data,
       });
+      dispatch(dispatchErrors("Account created", "success"));
     })
     .catch((err) => {
       dispatch(dispatchErrors(err.response.data, "error"));
@@ -88,7 +89,9 @@ export const update = (username, password, email, ran) => (
   } else if (filled === true) {
     axios
       .patch("/api/auth/user", body, tokenConfig(getState))
-      .then((res) => console.log("user updated"))
+      .then((res) => {
+        dispatch(dispatchErrors("information updated", "success"));
+      })
       .catch((err) => dispatch(dispatchErrors(err.response.data, "error")));
   };
 };

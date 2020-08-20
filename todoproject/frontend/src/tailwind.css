@@ -570,8 +570,8 @@ svg {
   border-width: 1px;
 }
 
-.border-r-4 {
-  border-right-width: 4px;
+.border-t-4 {
+  border-top-width: 4px;
 }
 
 .cursor-pointer {
@@ -614,6 +614,10 @@ svg {
   justify-content: space-around;
 }
 
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
 .flex-none {
   flex: none;
 }
@@ -648,6 +652,10 @@ svg {
 
 .text-sm {
   font-size: 0.875rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
 }
 
 .text-2xl {
@@ -774,6 +782,14 @@ svg {
   left: 0;
 }
 
+.top-0 {
+  top: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
 .bottom-0 {
   bottom: 0;
 }
@@ -874,35 +890,51 @@ svg {
           animation-fill-mode: forwards;
 }
 
-.input {
-  width: 75%;
-  border-style: solid;
-  border-width: 1px;
-  --border-opacity: 1;
-  border-color: #718096;
-  border-color: rgba(113, 128, 150, var(--border-opacity));
-  margin: 0.25rem;
-  text-align: center;
+.height-inherit { height: inherit;
 }
 
-.btn-submit {
-  padding: 0.5rem;
-  cursor: pointer;
-  margin: 0.25rem;
+.input { width: 75%; border-style: solid; border-width: 1px; --border-opacity: 1; border-color: #718096; border-color: rgba(113, 128, 150, var(--border-opacity)); margin: 0.25rem; text-align: center;
 }
 
-.header-one {
-  text-align: center;
-  font-size: 3rem;
-  font-weight: 800;
-  margin: 0.25rem;
+.btn-submit { padding: 0.5rem; cursor: pointer; margin: 0.25rem;
 }
 
-.header-two {
-  text-align: center;
-  font-size: 1.5rem;
-  margin: 0.25rem;
-  font-weight: 200;
+.header-one { text-align: center; font-size: 3rem; font-weight: 800; margin: 0.25rem;
+}
+
+.header-two { text-align: center; font-size: 1.5rem; margin: 0.25rem; font-weight: 200;
+}
+
+.self-delete {
+  -webkit-animation-name: self-delete;
+          animation-name: self-delete;
+  -webkit-animation-duration: 15s;
+          animation-duration: 15s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes self-delete {
+  /* Start display none and height 0 300 ms prior */
+}
+
+@keyframes self-delete {
+  /* Start display none and height 0 300 ms prior */
+
+  98% {
+    opacity: 1;
+    height: auto;
+    margin: 0.5rem;
+    padding: 0.75rem;
+  }
+
+  100% {
+    opacity: 0;
+    height: 0;
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 @media (min-width: 640px) {
