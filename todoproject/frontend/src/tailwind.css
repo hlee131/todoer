@@ -683,6 +683,16 @@ svg {
   margin-right: 0.25rem;
 }
 
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.mx-8 {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }

@@ -143,7 +143,7 @@ export default function Settings() {
           >
             Clear Todos
           </button>
-          <p className={`${textColor} text-center m-1`}>
+          <p className={`${textColor} mx-8 my-2 text-center m-1`}>
             WARNING: This button will delete any todos you have completed
           </p>
         </form>

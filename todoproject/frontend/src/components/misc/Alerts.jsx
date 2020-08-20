@@ -15,7 +15,7 @@ export default function Alerts() {
             >
               <div className="flex flex-row items-center justify-evenly height-inherit">  
                 <p className="height-inherit">{msg.message}</p>
-                <p className="p-1 cursor-pointer height-inherit text-xl" onClick={(e) => e.target.parentNode.parentNode.remove()}> X </p>
+                <p className="cursor-pointer height-inherit text-xl" onClick={(e) => e.target.parentNode.parentNode.remove()}> X </p>
               </div>
               
             </li>
