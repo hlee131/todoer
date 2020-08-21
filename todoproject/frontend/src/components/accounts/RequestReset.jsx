@@ -10,6 +10,7 @@ export default function RequestReset() {
   const inputStyles =
     style === "dark" ? "text-white bg-gray-700" : "text-black bg-gray-100";
   const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -21,13 +22,7 @@ export default function RequestReset() {
       },
     };
 
-    const body = JSON.stringify({
-      email,
-    });
-
-    axios.post("/api/auth/request-reset", body, config);
-    document.getElementById("initial").classList.add("hidden");
-    document.getElementById("success").classList.remove("hidden");
+    axios.post("/api/auth/request-reset", JSON.stringify({email}), config);
   };
 
   return (
@@ -36,7 +31,8 @@ export default function RequestReset() {
         id="initial"
         className={`${textColor} ${
           style === "dark" ? "bg-gray-700" : "bg-gray-100"
-        } h-screen w-screen flex items-center justify-center`}
+        } h-screen w-screen flex items-center justify-center 
+          ${submitted ? " hidden" : ""}`}
       >
         <div
           className={`${
@@ -82,7 +78,8 @@ export default function RequestReset() {
         id="success"
         className={`${textColor} ${
           style === "dark" ? "bg-gray-700" : "bg-gray-100"
-        } h-screen w-screen flex items-center justify-center hidden`}
+        } h-screen w-screen flex items-center justify-center
+          ${!submitted ? " hidden" : ""}`}
       >
         <div
           className={`${

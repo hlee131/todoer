@@ -32,7 +32,7 @@ export default function Settings() {
       );
       ran = true;
     }
-    dispatch(update(username, password, email, ran));
+    dispatch(update([username, email, password], ran));
     setUsername("");
     setEmail("");
     setPassword("");

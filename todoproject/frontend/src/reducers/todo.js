@@ -10,7 +10,6 @@ import {
 } from "../actions/types";
 
 const initialState = {
-  // TODO: More efficient as object instead of array?
   items: [],
   filter: "all",
   categories: [],
@@ -27,7 +26,7 @@ export default function (state = initialState, action) {
     case NEW_CATEGORY:
       return {
       	...state,
-	categories: [...state.categories, action.payload],
+	      categories: [...state.categories, action.payload],
       }
     case GET_ITEMS:
       return {

@@ -63,12 +63,20 @@ export const register = (username, password, email) => (dispatch) => {
     });
   };
 
-export const update = (username, password, email, ran) => (
+export const update = (auth, ran) => (
   dispatch,
   getState
 ) => {
-  // TODO: More clean way of doing this?
   const body = {};
+  
+  for (var i = 0; i < auth.length; i++) {
+    if (auth[i].trim() !== "") {
+      let key = i === 0 ? "username" : (i === 1 ? "email" : "password");
+      body[key] = auth[i];
+    }
+  }
+  
+  /*
   let filled = false;
   if (username.trim() !== "") {
     body.username = username;
@@ -82,10 +90,11 @@ export const update = (username, password, email, ran) => (
     body.email = email;
     filled = true;
   }
+  */
 
-  //  TODO: User might be updating style
+  // User might be updating style
   if (filled === false && ran === false) {
-    console.log("Must have one line filled");
+    dispatch(dispatchErrors("must change fields to save changes", "error"));
   } else if (filled === true) {
     axios
       .patch("/api/auth/user", body, tokenConfig(getState))

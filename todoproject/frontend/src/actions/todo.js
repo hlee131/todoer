@@ -103,6 +103,7 @@ export const tokenConfig = (getState) => {
 };
 
 export const dispatchErrors = (data, stat) => {
+  // Errors are passed in as an object whereas successes are strings
   let message = typeof data == "string" ? data : data[Object.keys(data)[0]][0];
   message = message.replace("This field", Object.keys(data)[0]);
   message = message.charAt(0).toUpperCase() + message.slice(1);
