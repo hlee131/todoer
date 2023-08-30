@@ -1,44 +1,14 @@
 # Description
 
-Todoer is a todo app that I built to learn Django REST Framework and React.
+Todoer is a task manager app with basic CRUD operations for tasks. The app also offers a responsive design for usage on both mobile and desktop clients. Other features of the application include: 
 
-# Future Ideas
+- Resetting your passwork 
+- Switching between light and dark mode 
+- Filtering tasks by status and categories
+- Secure accounts with token-based authentication
 
-~~Ideas scraped~~
-1. Password visible (DONE)
-2. Edit Account Info (DONE)
-3. Light Dark Mode (DONE)
-4. ~~OAuth~~
-5. Categories (DONE)
-6. ~~Slack / Messanger bot~~
-7. Use @apply with Tailwind for cleaner classes (DONE)
-8. Incomplete items (DONE)
-9. Error boxes / handling (DONE)
-10. Remove tokens from localStorage and soley into browser memory for security (React/Redux State) (DONE) 
-11. Forgot Password (DONE)
-12. Better UX (DONE)
-    - automatically set navVisible to hidden after selecting new filter (DONE)
-    - newest items first instead of vice versa (DONE)
-    - delete items (DONE)
-    - add css to password reset (DONE)
-13. ~~Add Landing page for product.~~
-14. Modal confirmation for important tasks such as clearing todos or deleting account (DONE) 
+The frontend is built with React and the backend is built with Django REST Framework. Tailwind was also used to style the frontend. 
 
-# Frameworks Used
-
-CSS: Tailwind        
-Frontend: React         
-Backend: Django REST Framework          
-
-# Bugs
-
-1. Items fading on "All Items" (FIXED)
-2. Items required reloading to be shown as completed (FIXED)
-
-## Misc Notes
-
-- If deploying, generate new secret key. Secret key exposed on github
-- Change password reset links on deploy.
 
 ## Credits
 
